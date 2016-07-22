@@ -185,6 +185,7 @@ body{
 	height: 80px;
 	background: url("../img/pub-wechat-code.png") no-repeat center;
 	background-size: 100%;
+	margin-top: 5px;
 }
 
 /*--页脚下右部 app二维码-*/
@@ -202,6 +203,7 @@ body{
 	height: 123px;
 	background: url("../img/pub-app.png") no-repeat center;
 	background-size: 100%;
+	margin-top: 5px;
 }
 
 /*————————公共页脚     结束   ————————————*/
