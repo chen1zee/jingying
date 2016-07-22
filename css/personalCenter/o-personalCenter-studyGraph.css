@@ -1,0 +1,223 @@
+
+
+/*---------------------------top-------------------------*/
+#top{
+	width: 1220px;
+	height: 178px;
+	margin: 30px auto;
+	background-color: white;
+}
+#top-left{
+	width: 172px;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	border-right: 2px solid #e8e8e8;
+}
+#avator{
+	width: 88px;
+	height: 88px;
+	margin: 20px auto 10px;
+	background: url(../../img/personalCenter/o-OriginalAvatar.png) no-repeat center center;
+}
+#name{
+	text-align: center;
+	font-size: 14px;
+}
+#change-name{
+	width: 36px;
+	height: 18px;
+	display: block;
+	margin: 10px auto;
+	font-size: 12px;
+	text-align: center;
+	color: #333333;
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+#top-right{
+	width: 1046px;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	background-color: white;
+}
+#top-right>p:nth-child(1){
+	margin-left: 23px;
+	margin-top: 25px;
+	font-size: 14px;
+	color: #999999;
+}
+.study-list>li{
+	display: block;
+	margin-left: 30px;
+	width: 1000px;
+	height: 36px;
+}
+.study-list>li>p{
+	height: 36px;
+	font-size: 14px;
+	display: inline-block;
+	line-height: 36px;
+}
+.study-name{
+	width: 520px;
+	color: #333;
+}
+.study-time{
+	width: 100px;
+	color: #666666;
+}
+.grey-bar{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 50px;
+	height: 5px;
+	background-color: #ccc;
+}
+.green-bar{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #33b574;
+}
+.score{
+	float: right;
+	margin-right: 72px;
+}
+/*---------------------------top-------------------------*/
+
+
+/*-------------------------middle------------------------*/
+
+#middle{
+	width: 1220px;
+	margin: 30px auto;
+}
+#middle-left{	
+	display: inline-block;
+	float: left;
+}
+#middle-left>li{
+	width: 150px;
+	height: 50px;
+	padding-left: 18px;
+	font-size: 14px;
+	line-height: 50px;
+	color: #333333;
+	background-color: white;
+	border-left: 2px solid white;
+}
+#middle-left>li:hover{
+	background-color: #33b574!important;
+	border-left: 2px solid #33b574!important;
+	color: white;
+}
+.onclick-middle-left{
+	background-color: #fafafa!important;
+	border-left: 2px solid #33b574!important;
+}
+.middle-right{
+	display: none;
+}
+.inline{
+	display: inline-block!important;	
+	float: right!important;
+}
+.middle-right-1{
+	width: 1040px;
+	height: 710px;
+	background-color: white;
+	overflow: hidden;
+}
+.lesson>li{
+	display: inline-block;
+	float:left;
+	width: 145px;
+	height: 47px;
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+	line-height: 47px;
+	border-top: 3px solid white;
+}
+.onclick-lesson-li{
+	border-top: 3px solid #33b574!important;
+}
+.middle-right-1>div>p{
+	margin:44px 0 22px 30px;
+	font-size: 16px;
+	color: #333;
+	text-align: left;
+}
+.middle-right-1>div>img{
+	margin-left: 30px;
+}
+.middle-right-1>div{
+	display: none;
+}
+.in{
+	display: block!important;
+}
+
+
+.middle-right-2{
+	width: 1040px;
+	height: 433px;
+	margin-top: 15px;
+	background-color: white;
+}
+.lesson1{
+	width: 1040px;
+	height: 54px;
+	background-color: #FAFAFA;
+	border-bottom: 1px solid #E8E8E8;
+}
+.lesson1>li{
+	display: inline-block;
+	float:left;
+	width: 145px;
+	height: 55px;
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+	line-height: 55px;
+}
+.lesson1>li:nth-child(1){
+	border-right: 1px solid #E8E8E8;
+}
+.onclick-lesson1-li{
+	background-color: white;
+	border-right: 1px solid #E8E8E8;
+}
+.lesson1-details{
+	display: none;
+	width: 1040px;
+	height: 378px;
+	overflow: hidden;
+}
+.lesson1-details>p{
+	margin: auto;
+	font-size: 16px;
+	color: #999999;
+	text-align: center;
+}
+.lesson1-details>p:nth-child(1){
+	margin-top: 165px;
+}
+.lesson1-details>p>a{
+	color: #33b574;
+}
+
+
+
+
+
+
+
+
+/*-------------------------middle------------------------*/

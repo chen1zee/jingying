@@ -1,0 +1,36 @@
+.class-list{
+	width: 1040px;
+	background-color: white;
+}
+.class-list>p{
+	width: 980px;
+	height: 44px;
+	margin-left: 30px;
+	font-size: 14px;
+	color: #999999;
+	line-height: 60px;
+	border-bottom: 1px solid #ededed;
+}
+.class-list>li{
+	width: 980px;
+	height: 38px;
+	margin-left: 30px;
+}
+.class-list>li:nth-of-type(1){
+	margin-top: 20px;
+}
+.class-list>li>P{
+	display: inline-block;
+	height: 38px;
+	font-size: 14px;
+	color: #333;
+	line-height: 38px;
+}
+.class-list>li>P:nth-child(1){
+	margin-left: 14px;
+	width: 750px;
+}
+.class-list>li>P:nth-of-type(3){
+	float: right;
+	width: 70px;
+}
