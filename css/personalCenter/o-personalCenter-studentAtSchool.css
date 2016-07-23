@@ -1,0 +1,36 @@
+.middle6-right{
+	width: 720px;
+	height: 576px;
+	padding-left: 320px;
+	background-color: white;
+}
+.middle6-right>p{
+	margin-top: 80px;
+	margin-bottom: 62px;
+	font-size: 22px;
+	color: #333;
+}
+.studen-info>li{
+	margin-bottom: 10px;
+}
+.studen-info>li>span{
+	font-size: 14px;
+	color: #333;
+}
+.studen-info>li>input{
+	width: 294px;
+	height: 34px;
+	padding-left: 10px;
+	border:1px solid #C7C7C7;
+}
+#submit-student-info{
+	width: 136px;
+	height: 38px;
+	margin-top: 36px;
+	margin-left: 74px;
+	color: white;
+	font-size: 14px;
+	text-align: center;
+	background-color: #33B574;
+	border: none;
+}

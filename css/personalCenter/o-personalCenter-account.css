@@ -1,0 +1,52 @@
+.middle4-right{
+	width: 1040px;
+	height: 490px;
+	background-color: white;
+	overflow: hidden;
+}
+.middle4-right>div>input{
+	display: inline-block;
+	width: 290px;
+	height: 38px;
+	padding-left: 18px;
+	margin-right: 8px;
+	border: 1px solid #e0e0e0;
+}
+.middle4-right>div{
+	margin-left: 220px;
+	margin-bottom: 14px;
+	font-size: 14px;
+	color: #333;
+}
+.middle4-right>p{
+	margin-top: 125px;
+	margin-bottom: 18px;
+	margin-left: 317px;
+	font-size: 14px;
+	color: #666;
+}
+.middle4-right>div>span{
+	font-size: 12px;
+	color: #999;
+}
+#submit-pwd{
+	width: 136px;
+	height: 40px;
+	margin-top: 36px;
+	margin-left: 318px;
+	font-size: 14px;
+	color: white;
+	background-color: #33b574;
+	border: none;
+}
+.wrong{
+	border-color: red!important;
+}
+.trueFalse{
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: middle;
+	background: url(../../img/personalCenter/o-logos-trueFalse.png) no-repeat center top;
+}

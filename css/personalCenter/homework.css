@@ -19,18 +19,44 @@
 .class-list>li:nth-of-type(1){
 	margin-top: 20px;
 }
-.class-list>li>P{
+.class-list>li P{
 	display: inline-block;
 	height: 38px;
 	font-size: 14px;
 	color: #333;
 	line-height: 38px;
 }
-.class-list>li>P:nth-child(1){
+.class-name{
 	margin-left: 14px;
 	width: 750px;
 }
-.class-list>li>P:nth-of-type(3){
+.class-like{
 	float: right;
 	width: 70px;
+}
+.middle3-lesson{
+	width: 1040px;
+	height: 54px;
+	background-color: #FAFAFA;
+	border-bottom: 1px solid #E8E8E8;
+}
+.middle3-lesson>li{
+	display: inline-block;
+	float:left;
+	width: 145px;
+	height: 55px;
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+	line-height: 55px;
+}
+.middle3-lesson>li:nth-child(1){
+	border-right: 1px solid #E8E8E8;
+}
+.onclick-middle3-lesson-li{
+	background-color: white;
+	border-right: 1px solid #E8E8E8;
+}
+.lesson-list>li{
+	display: none;
 }
