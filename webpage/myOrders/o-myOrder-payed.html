@@ -2,10 +2,9 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="../../css/myOrders/o-myOrders-allOrders.css"/>
-		<link rel="stylesheet" type="text/css" href="../../css/myOrders/o-myOrders-refund-wrap.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/myOrders/o-myOrders-payed.css"/>
 		<meta charset="UTF-8">
-		<title>allOrders</title>
+		<title>payed</title>
 	</head>
 	<body>
 		<header>
@@ -24,9 +23,9 @@
 			<p id="words-a">我的订单</p>
 			<div id="middle-right">
 				<ul id="middle-right-nav">
-					<a href="###"><li class="middle-right-nav-on">全部</li></a>
+					<a href="o-myOrders-allOrders.html"><li>全部</li></a>
 					<a href="###"><li>待付款</li></a>
-					<a href="o-myOrder-payed.html"><li>已支付</li></a>
+					<a href="###"><li class="middle-right-nav-on">已支付</li></a>
 					<a href="###"><li>待评价</li></a>
 					<a href="###"><li>已完成</li></a>
 					<a href="###"><li>已取消</li></a>
@@ -46,19 +45,6 @@
 						<p>交易状态</p>
 						<p>操作</p>
 					</div>
-					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
-						<div class="orders-info">
-							<img class="orderlist-img" src="../../img/c-course1.png"/>
-							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
-							<p class="orders-num">订单号：9345612</p>
-						</div>
-						<div class="orders-time">2015-02-15</div>
-						<div class="orders-amount">1</div>
-						<div class="orders-money">￥18900</div>
-						<div class="orders-payment">待付款</div>
-						<div class="orders-operation"><a href="###"><p class="orders-operation-waitToPay">付款</p></a></div>
-					</li>
 					<li>
 						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
 						<div class="orders-info">
@@ -105,49 +91,33 @@
 						<div class="orders-time">2015-02-15</div>
 						<div class="orders-amount">1</div>
 						<div class="orders-money">￥18900</div>
-						<div class="orders-payment">已完成</div>
-						<div class="orders-operation"><a href="###"><p class="orders-operation-evaluate">评价</p></a></div>
+						<div class="orders-payment">已付款</div>
+						<div class="orders-operation"><p class="orders-operation-refund">退款</p></div>
+						<div class="refund-wrap">
+							<div class="refund-wrap-reason">
+								<p><span>&lowast;</span>退款原因：</p>
+								<div id="parent">
+									  <select>
+									      <option>what</option>
+									      <option>the</option>
+									      <option>hell</option>
+									  </select>
+								</div>
+							</div>
+							
+							<p class="refund-wrap-money">
+								<span>&lowast;</span>退款金额：
+								<input type="text" name="" id="" value="" />
+							</p>
+							<div class="refund-details">
+								<p>退款说明：</p>
+								<textarea name="" onkeyup="len()" onkeydown="len()" maxlength="200"></textarea>
+								<span id="words-num">还可以填写个<span></span>字</span>
+							</div>
+							<button id="refund-wrap-submit">提交退款申请</button>
+						</div>
 					</li>
 					
-					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
-						<div class="orders-info">
-							<img class="orderlist-img" src="../../img/c-course1.png"/>
-							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
-							<p class="orders-num">订单号：9345612</p>
-						</div>
-						<div class="orders-time">2015-02-15</div>
-						<div class="orders-amount">1</div>
-						<div class="orders-money">￥18900</div>
-						<div class="orders-payment">已完成</div>
-						<div class="orders-operation">已评价</div>
-					</li>
-					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
-						<div class="orders-info">
-							<img class="orderlist-img" src="../../img/c-course1.png"/>
-							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
-							<p class="orders-num">订单号：9345612</p>
-						</div>
-						<div class="orders-time">2015-02-15</div>
-						<div class="orders-amount">1</div>
-						<div class="orders-money">￥18900</div>
-						<div class="orders-payment">申请退款</div>
-						<div class="orders-operation">处理中</div>
-					</li>
-					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
-						<div class="orders-info">
-							<img class="orderlist-img" src="../../img/c-course1.png"/>
-							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
-							<p class="orders-num">订单号：9345612</p>
-						</div>
-						<div class="orders-time">2015-02-15</div>
-						<div class="orders-amount">1</div>
-						<div class="orders-money">￥18900</div>
-						<div class="orders-payment">已完成</div>
-						<div class="orders-operation">已退款</div>
-					</li>
 				</ul>
 			</div>
 			</div>
