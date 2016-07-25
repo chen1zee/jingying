@@ -1,0 +1,35 @@
+.section-bg{
+	margin: 0 auto;
+	width: 1220px;
+	background-color: #fff;
+}
+
+
+/*———————上部  学校简介  结束——————*/
+.section-bg>.school-box{
+	box-sizing: border-box;
+	float: left;
+	width: 915px;
+	padding: 25px;
+}
+.section-bg>.school-box>img{
+	float: left;
+	margin-right: 25px;
+	width: 340px;
+	height: 206px;
+}
+.school-box>.para-wrap{
+	float: left;
+}
+.school-box>.para-wrap>.title{
+	font-size: 2.4rem;
+	color: #333;
+}
+
+
+
+
+
+
+
+/*———————上部  学校简介   结束——————*/

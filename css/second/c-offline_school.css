@@ -1,0 +1,342 @@
+/*————————————icon  引入————————————*/
+@font-face {font-family: 'iconfont';
+    src: url('./c-icon/iconfont.eot'); /* IE9*/
+    src: url('./c-icon/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./c-icon/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('./c-icon/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('./c-icon/siconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #999;
+}
+
+/*————————————icon  引入————————————*/
+
+
+
+
+/*——————————————  上面  导航搜索  开始————————————*/
+
+.section-bg{
+	margin: 0 auto 30px;
+	width: 1220px;
+
+}
+.section-bg>.search-bar{
+	box-sizing: border-box;
+	padding: 23px 20px;
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 30px;
+}
+.search-bar>.choose-wrap{
+	box-sizing: border-box;
+	width: 100%;
+	padding-left: 62px;
+	height: 20px;
+	font-size: 1.4rem;
+	color: #333;
+}
+.search-bar>.choose-wrap.sort{
+	margin-bottom: 24px;
+}
+.choose-wrap>.title{
+	float: left;
+	width: 62px;
+	margin-left: -62px;
+}
+.choose-wrap.sort .icon{
+	
+	width: 13px;
+	height: 13px;
+	background: url('../../img/c-offline1.png') no-repeat center 0px;
+	background-size: 100%;
+}
+.choose-wrap span{
+	display: inline-block;
+	line-height: 20px;
+	vertical-align: middle;
+}
+.choose-wrap a{
+	float: left;
+	display: block;
+	width: 80px;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	color: #333;
+}
+.choose-wrap.address .icon{
+	width: 14px;
+	height: 18px;
+	background: url('../../img/c-offline2.png') no-repeat center;
+	background-size: 100%;
+}
+
+
+/*——————————————  上面  导航搜索  结束————————————*/
+
+
+
+
+
+/*——————————搜索结果   开始   ——————————————*/
+.section-bg>.result-bg{
+	margin-bottom: 30px;
+	width: 910px;
+	overflow: hidden;
+	background-color: #fff;
+}
+.result-bg>.search-box{
+	position: relative;
+	margin-bottom: 18px;
+	height: 52px;
+}
+.search-box>a{
+	float: left;
+	width: 110px;
+	height: 52px;
+	line-height: 52px;
+	font-size: 1.4rem;
+	color: #333;
+	text-align: center;
+}
+.search-box>a>*{
+	vertical-align: middle;
+}
+.search-box>a.active{
+	color: #29b572;
+}
+
+.search-box>a>i{
+	font-size: 1.8rem;
+}
+.search-box>.greenbar{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 110px;
+	height: 4px;
+	background-color: #29b572;
+}
+
+.result-bg>.result-list{
+	padding-left: 12px;
+	padding-right: 12px;
+}
+.result-bg>.result-list>li{
+	box-sizing: border-box;
+	padding-left: 13px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	border: 1px solid transparent;
+	transition: border 0.5s;
+}
+.result-bg>.result-list>li:hover{
+	border-color: #e0e0e0;
+}
+.result-bg>.result-list>li:hover .title{
+	color: #29b572;
+}
+.result-list a{
+	display: block;
+	width: 100%;
+}
+.result-list a>img{
+	float: left;
+	margin-right: 20px;
+	width: 163px;
+
+}
+.result-list .para-box{
+	float: left;
+	max-width: 500px;
+}
+.result-list .para-box>.title{
+	font-size: 1.8rem;
+	color: #333;
+	line-height: 24px;
+	font-weight: bold;
+	transition: color 0.5s;
+}
+.para-box>.title>.gray{
+	font-size: 1.4rem;
+	color: #666;
+}
+.para-box>.score-box{
+	margin-top: 6px;
+	height: 26px;
+	margin-bottom: 6px;
+}
+.para-box>.score-box>.star-list{
+	float: left;
+}
+.score-box>.star-list>span{
+	float: left;
+	display: inline-block;
+	margin-right: 5px;
+	height: 14px;
+	width: 14px;
+	background: url('../../img/c-course10.png') no-repeat center;
+	background-size: 100%;
+}
+.score-box>.star-list>span.active{
+	background: url('../../img/c-course9.png') no-repeat center;
+	background-size: 100%;	
+}
+.score-box>p{
+	font-size: 1.2rem;
+	color: #999;	
+}
+.score-box>p>.green{
+	color: #3faf7a;
+}
+.para-box>.address{
+	padding-left: 18px;
+	height: 15px;
+}
+.para-box>.address>.icon{
+	display: inline-block;
+	margin-left: -18px;
+	width: 11px;
+	height: 15px;
+	background: url('../../img/c-course4.png') no-repeat center;
+	background-size: 100%;
+}
+.para-box>.address>span{
+	float: left;
+	font-size: 1.4rem;
+	line-height: 15px;
+	color: #999;
+}
+
+.result-bg>.paganation{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+.paganation>li{
+	margin-right: 5px;
+	padding-left: 12px;
+	padding-right: 12px;
+	display: inline-block;
+	line-height: 30px;
+	height: 32px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	vertical-align: middle;
+	font-size: 1.3rem;
+	color: #666;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.paganation>li.active{
+	color: #fff;
+	background-color: #29b572;
+}
+
+.paganation>li.none{
+	border-color: transparent;
+	font-weight: bold;
+	line-height: 25px;
+}
+
+
+
+/*————————右 中 热销课程——————*/
+.hot-sell-box{
+	float: right;
+	width: 295px;
+	box-sizing: border-box;
+	padding: 26px 12px 40px 15px;
+	background-color: #fff;
+	margin-bottom: 15px;
+}
+.hot-sell-box>.hot-sell{
+	height: 20px;
+}
+.hot-sell-box>.hot-sell>.hot-icon{
+	display: inline-block;
+	width: 14px;
+	height: 20px;
+	background: url("../../img/c-course5.png") no-repeat center;
+	background-size: 100%;
+	text-indent: 0;
+}
+.hot-sell-box>.hot-sell>span{
+	display: inline-block;
+	line-height: 20px;
+	font-size: 1.6rem;
+	color: #333;
+	text-indent: 0.5rem;
+}
+.hot-sell-box>.hot-sell>a{
+	float: right;
+	font-size: 1.2rem;
+	color: #666;
+	line-height: 23px;
+}
+.hot-sell-box li{
+	margin-top: 20px;
+}
+.hot-sell-box li>a{
+	display: block;
+	width: 100%;
+	height: 62px;
+}
+.hot-sell-box li img{
+	float: left;
+	width: 110px;
+	margin-right: 10px;
+}
+.hot-sell-box li .title{	
+	float: left;
+	width: 145px;
+	font-size: 1.4rem;
+	color: #333;
+	line-height: 1.4rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.hot-sell-box li .para{
+	float: left;
+	width: 145px;
+	color: #999;
+	font-size: 1.2rem;
+	line-height: 2rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.hot-sell-box li .price{
+	float: left;
+	width: 145px;
+	color: #ea9b65;
+	font-size: 1.6rem;
+	font-weight: bold;
+	line-height: 1.8rem;
+}
+
+
+
+
+
+
+
+/*——————————搜索结果   结束   ——————————————*/
+
+
+
+
+
+
+
+
+

@@ -54,85 +54,85 @@ $(function () {
 
 
 
-	// ---改变页数 函数
+	// // ---改变页数 函数
 
-	if (totalListNum > listLength) {//---页数大于10页才有事件
+	// if (totalListNum > listLength) {//---页数大于10页才有事件
 
 
-		function more7() {//--大于等于7且没到最底时
-			for (var i = 0; i < listLength - 1; i++) {
-				$('#paganation li').eq(i).html(listIndex - 6 + i);
-			}
-			$('#paganation li').eq(6).attr('class','active').siblings().attr('class','');
-			$('#paganation li').eq(listLength - 1).html('...').attr('class','none');
-			$('#paganation li').eq(listLength).html(totalListNum);
-			 /* body... */ 
-		}
-		function maxEnd() {//---到底时候样式
-			$('#paganation li').eq(0).html(1);
-			$('#paganation li').eq(1).html('...');
-			for (var i = 0; i < listLength - 1; i++) {
-				$('#paganation li').eq(i + 2).html((totalListNum - listLength + i + 2));
-			}
-			$('#paganation li').eq(listLength  - totalListNum + listIndex).attr('class','active').siblings().attr('class','');
-			 /* body... */ 
-		}
+	// 	function more7() {//--大于等于7且没到最底时
+	// 		for (var i = 0; i < listLength - 1; i++) {
+	// 			$('#paganation li').eq(i).html(listIndex - 6 + i);
+	// 		}
+	// 		$('#paganation li').eq(6).attr('class','active').siblings().attr('class','');
+	// 		$('#paganation li').eq(listLength - 1).html('...').attr('class','none');
+	// 		$('#paganation li').eq(listLength).html(totalListNum);
+	// 		 /* body... */ 
+	// 	}
+	// 	function maxEnd() {//---到底时候样式
+	// 		$('#paganation li').eq(0).html(1);
+	// 		$('#paganation li').eq(1).html('...');
+	// 		for (var i = 0; i < listLength - 1; i++) {
+	// 			$('#paganation li').eq(i + 2).html((totalListNum - listLength + i + 2));
+	// 		}
+	// 		$('#paganation li').eq(listLength  - totalListNum + listIndex).attr('class','active').siblings().attr('class','');
+	// 		 /* body... */ 
+	// 	}
 
-		function changeLi() {
-			if (listIndex <= 7) {//---小于7时
-				for (var i = 0; i < listLength - 1; i++) {
-					$('#paganation li').eq(i).html(i + 1);
-				}
+	// 	function changeLi() {
+	// 		if (listIndex <= 7) {//---小于7时
+	// 			for (var i = 0; i < listLength - 1; i++) {
+	// 				$('#paganation li').eq(i).html(i + 1);
+	// 			}
 				
-				$('#paganation li').eq(listLength).html(totalListNum);
-				$('#paganation li').eq(listIndex - 1).attr('class','active').siblings().attr('class','');
-				$('#paganation li').eq(listLength - 1).html('...').attr('class','none');
-			}else if ((listIndex > 7) && (listIndex < totalListNum - listLength + 2)) {//--大于等于7且没到最底时
-				more7();
+	// 			$('#paganation li').eq(listLength).html(totalListNum);
+	// 			$('#paganation li').eq(listIndex - 1).attr('class','active').siblings().attr('class','');
+	// 			$('#paganation li').eq(listLength - 1).html('...').attr('class','none');
+	// 		}else if ((listIndex > 7) && (listIndex < totalListNum - listLength + 2)) {//--大于等于7且没到最底时
+	// 			more7();
 				
-			}else if (listIndex == totalListNum - listLength + 2) {
-				if (listIndex > beforeIndex) {//---向下走
-					maxEnd();
+	// 		}else if (listIndex == totalListNum - listLength + 2) {
+	// 			if (listIndex > beforeIndex) {//---向下走
+	// 				maxEnd();
 					
-				}else{
-					more7();
-				}
+	// 			}else{
+	// 				more7();
+	// 			}
 				
-			}else {//---到底时候样式
-				maxEnd();
-			}
-			beforeIndex = listIndex;//---记录之前页面，用作刚好临界条件用
-			 /* body... */ 
-		}
-	}else{//---页数小于10页，，，取消事件
-		var changeLi = null;
-	}
+	// 		}else {//---到底时候样式
+	// 			maxEnd();
+	// 		}
+	// 		beforeIndex = listIndex;//---记录之前页面，用作刚好临界条件用
+	// 		 /* body... */ 
+	// 	}
+	// }else{//---页数小于10页，，，取消事件
+	// 	var changeLi = null;
+	// }
 
 
 
-	// -----点击页数 刷新 页数列表
-	$('#paganation li').on('click',function () {
-		listIndex = parseInt($(this).html());	
-		changeLi();
-		console.log(listIndex);
+	// // -----点击页数 刷新 页数列表
+	// $('#paganation li').on('click',function () {
+	// 	listIndex = parseInt($(this).html());	
+	// 	changeLi();
+	// 	console.log(listIndex);
 
-		 /* body... */ 
-	})
+	// 	 /* body... */ 
+	// })
 
-	$('#next').on('click',function () {
-		if (listIndex < totalListNum) {
-			listIndex++;
-			changeLi();
-		}
-		 /* body... */ 
-	});
-	$('#prev').on('click',function () {
-		if (listIndex > 1) {
-			listIndex--;
-			changeLi();
-		}
-		 /* body... */ 
-	});
+	// $('#next').on('click',function () {
+	// 	if (listIndex < totalListNum) {
+	// 		listIndex++;
+	// 		changeLi();
+	// 	}
+	// 	 /* body... */ 
+	// });
+	// $('#prev').on('click',function () {
+	// 	if (listIndex > 1) {
+	// 		listIndex--;
+	// 		changeLi();
+	// 	}
+	// 	 /* body... */ 
+	// });
 
 	//——————————预约咨询事件————————————
 
