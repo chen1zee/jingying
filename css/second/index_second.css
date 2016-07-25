@@ -1,0 +1,296 @@
+/**********中间主体   开始 *************/
+
+
+.main {
+	width: 100%;
+	background-color: #f5f5f5;
+}
+
+.minWidth {
+	width: 1220px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*轮播和登录*/
+.block-login {
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+/*左边*/
+.block-left {
+	width: 977px;
+	height: 346px;
+	float: left;
+	position: relative;
+}
+
+/*左边的轮播图*/
+.block-left ul {
+	display: block;
+	position: relative;
+}
+
+.block-left li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	opacity: 0.5;
+}
+
+.block-left li.icon {
+	opacity: 1;
+	transition: opacity 2s;
+}
+
+.block-left a {
+	text-decoration: none;
+	width: 997px;
+	height: 346px;
+	display: block;
+}
+
+.block-left li:nth-of-type(1) {
+	display: block;
+}
+
+/*轮播图小圆点*/
+.paganation {
+	position: absolute;
+	bottom:17px;
+	right:30px;
+	width:100%;
+	text-align: right;
+	-webkit-user-select:none;
+}
+.paganation span {
+	display: inline-block;
+	width:15px;
+	height: 15px;
+	text-align: center;
+	line-height: 15px;
+	border-radius: 50%;
+	background-color: #fff;
+	cursor: pointer;
+	margin-left: 14px;
+}
+.paganation span.active {
+	background-color: #33B574;
+}
+
+
+/*右边*/
+.block-right {
+	width: 243px;
+	height: 346px;
+	float: right;
+	background-color: #fff;
+}
+
+/*顶部*/
+.user-top {
+	overflow: hidden;
+	width: 203px;
+	margin: 23px auto 0;
+}
+.user-top img {
+	float: left;
+}
+
+.user-top span {
+	display: block;
+}
+
+.user-top p {
+	float: left;
+	display: inline-block;
+	margin-left: 13px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.login-button {
+	margin: -8px 20px 0px;
+	border-bottom: 1px solid #e8e8e8;
+	padding-left: 76px;
+	padding-bottom: 15px;
+
+}
+
+.login-button a {
+	text-decoration: none;
+	font-size: 14px;
+	padding: 1px 14px 3px 14px;
+	border-radius: 2px;
+	margin-right: 5px;
+}
+
+.a-login {
+	color: white;
+	background-color: #29b572;
+}
+
+.a-register {
+	color: #29b572;
+}
+
+.a-register:hover {
+	background-color: #29b572;
+	color: #fff;
+
+}
+
+/*中部*/
+.user-middle {
+	margin:10px 20px;
+}
+
+.user-middle-title {
+	margin-bottom: 22px;
+	overflow: hidden;
+}
+
+.user-middle-title p {
+	float: left;
+	font-size: 14px;
+	color: #333333;
+}
+
+.user-middle-title a {
+	float: right;
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+}
+
+.user-middle-content {
+	border-bottom: 1px solid #e8e8e8;
+	overflow: hidden;
+}
+
+.user-middle-content div {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+.user-middle-content div a {
+	display: block;
+	margin-bottom: 17px;
+	text-decoration: none;
+}
+
+.user-middle-content div a strong {
+	width: 100%;
+	height: 29px;
+	display: block;
+	margin-bottom: 8px;
+	background: url(../img/h-sprite1.png) no-repeat ;
+}
+
+.user-middle-content div a span {
+	font-size: 12px;
+	color: #808080;
+}
+
+.user-middle-content div a span:hover {
+	color: #29b572;
+}
+
+.user-middle-content div a .strong-one {
+	background-position: 23px -16px;
+}
+
+.user-middle-content div a .strong-two {
+	background-position: 23px -100px;
+}
+
+.user-middle-content div a .strong-three {
+	background-position: 23px -184px;
+}
+
+.user-middle-content div a .strong-four {
+	background-position: 23px -262px;
+}
+
+/*奖金*/
+.scholarship {
+	width: 203px;
+	margin: 0 auto;
+}
+
+.scholarship a {
+	width: 32%;
+	color: #666666;
+	display: inline-block;
+	text-decoration:underline;
+	font-size: 14px;
+	text-align: center;
+}
+
+/*五个答疑*/
+.answer-box {
+	height: 80px;
+	background-color: #fff;
+	padding:30px 20px;
+	margin-bottom: 40px;
+}
+
+.answer-box li {
+	float: left;
+	width: 235px;
+	border-right: 1px solid #e8e8e8;
+}
+
+.answer-box li:last-child {
+	border-right: none;
+}
+
+.answer-box li .block-img {
+	width: 60px;
+	height: 60px;
+	background: url(../img/h-sprite2.png) no-repeat;
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+	margin-right: 15px;
+}
+
+.answer-box li .block-word{
+	float:left;
+	display: inline-block;
+	width: 120px;
+	margin-right: 20px;
+}
+
+.answer-box li .img-one {
+	background-position: -10px -27px;
+}
+.answer-box li .img-two {
+	background-position: -10px -178px;
+}
+.answer-box li .img-three {
+	background-position: -10px 10px;
+}
+.answer-box li .img-four {
+	background-position: 10px 10px;
+}
+.answer-box li .img-five {
+	background-position: 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
