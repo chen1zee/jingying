@@ -138,6 +138,8 @@ $(function () {
 
 
 	$('#askBtn').on('click',function () {//————打开蒙层
+		$('#askMask>.ask-box').css('transform','translateX(0) translateY(0)');
+		tranX = tranY = 0;
 		$('#askMask').css('display','block');
 		 /* body... */ 
 	});
@@ -207,9 +209,6 @@ $(function () {
 				 /* body... */ 
 			})
 			e.preventDefault();
-
-
-
 			 /* body... */ 
 		});
 

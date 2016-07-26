@@ -1,18 +1,22 @@
 .section-bg{
-	margin: 0 auto;
+	margin: 0 auto 30px;
 	width: 1220px;
-	background-color: #fff;
+
 }
 
-
-/*———————上部  学校简介  结束——————*/
-.section-bg>.school-box{
-	box-sizing: border-box;
+.section-bg>.left-box{
 	float: left;
+}
+/*———————上部  学校简介  结束——————*/
+.section-bg .school-box{
+	box-sizing: border-box;
 	width: 915px;
 	padding: 25px;
+	background-color: #fff;
+	margin-bottom: 30px;
+
 }
-.section-bg>.school-box>img{
+.section-bg .school-box>img{
 	float: left;
 	margin-right: 25px;
 	width: 340px;
@@ -26,10 +30,411 @@
 	color: #333;
 }
 
+.school-box>.para-wrap>.some-wrap{
+	margin-top: 33px;
+	margin-bottom: 40px;
+	width: 500px;
+	height: 70px;
+	box-sizing: border-box;
+	padding-left: 20px;
+	border: 1px solid #e8e8e8;
+}
+.para-wrap>.some-wrap>.star-list{
+	position: relative;
+	top: -10px;
+	left: -10px;
+	width: 142px;
+	height: 17px;
+	text-align: center;
+	background-color: #fff;
+}
 
+.some-wrap>.star-list>span{
+	margin-right: 5px;
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	background: url('../../img/c-course10.png') no-repeat center;
+	background-size: 100%;
+}
+.some-wrap>.star-list>span.active{
+	background: url('../../img/c-course9.png') no-repeat center;
+	background-size: 100%;
+}
+.some-wrap>.address-box{
+	padding-left: 20px;
+	font-size: 1.4rem;
+	color: #666;
+}
+.address-box>.icon{
+	display: inline-block;
+	float: left;
+	margin-left: -20px;
+	width: 11px;
+	height: 13px;
+	background: url('../../img/c-course4.png') no-repeat center;
+	background-size: 100%;
+}
+.some-wrap>.join-number{
+	position: relative;
+	bottom: -28px;
+	width: 88px;
+	height: 20px;
+	background-color: #fff;	
+	font-size: 1.4rem;
+	color: #666;
+	line-height: 20px;
+}
+.some-wrap>.join-number>.green{
+	color: #29b572;
+	font-size: 2.2rem;
+	line-height: 20px;
 
-
-
-
+}
+.para-wrap>a{
+	display: block;
+	box-sizing: border-box;
+	width: 130px;
+	height: 38px;
+	border: 1px solid #ea9b65;
+	color: #ea9b65;
+	text-align: center;
+	line-height: 36px;
+	font-size: 1.6rem;
+}
 
 /*———————上部  学校简介   结束——————*/
+
+
+
+
+
+
+
+/*——————————左下   Tab切换   开始  ————————————*/
+.result-box{
+	width: 915px;
+	background-color: #fff;
+}
+
+.tab-list{
+	position: relative;
+	height: 66px;	
+}
+.tab-list>li{
+	float: left;
+	width: 145px;
+	height: 100%;
+	font-size: 1.6rem;
+	color: #333;
+	text-align: center;
+	line-height: 66px;
+}
+.tab-list>li:hover{
+	cursor: pointer;
+}
+.tab-list>.green-bar{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 145px;
+	height: 4px;
+	background-color: #29b572;
+	transition: left 0.3s;
+}
+
+.result-box>.tab-box{
+	padding: 0 30px 55px;
+}
+
+
+/*————————Tab切换   1 本校课程——————————————*/
+.tab-box>.school-course{
+	width: 100%;
+
+}
+.school-course a{
+	display: block;
+	width: 100%;
+	padding-top: 23px;
+	padding-bottom: 23px;
+	border-bottom: 1px solid #e8e8e8;
+}
+.school-course li:nth-last-of-type(1)>a{
+	border-bottom: 0;
+}
+.school-course .word-box{
+	float: left;
+	width: 650px;
+}
+.school-course .word-box>.title{
+	font-size: 1.5rem;
+	color: #333;
+	margin-bottom: 10px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.school-course .word-box>.title>.online{
+	padding: 0 1px 2px;
+	display: inline-block;
+	font-size: 1rem;
+	color: #29b572;
+	border: 1px solid #29b572;
+	border-radius: 2px;
+}
+.school-course .word-box>.title>.offline{
+	padding: 0 1px 2px;
+	display: inline-block;
+	font-size: 1rem;
+	color: #ea9b65;
+	border: 1px solid #ea9b65;
+	border-radius: 2px;
+}
+.school-course .word-box>.para-box{
+	font-size: 1.4rem;
+	color: #999;
+	line-height: 1.4rem;
+}
+.school-course .word-box .name{
+	float: left;
+	max-width: 160px;
+	padding-right: 20px;
+}
+.word-box .name>.icon{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background: url("../../img/c-course3.png") no-repeat center;
+	background-size: 100%;
+}
+.word-box .day{
+	float: left;
+	padding-right: 50px;
+}
+.word-box .day>.icon{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background: url("../../img/c-course8.png") no-repeat center;
+	background-size: 100%;
+}
+.word-box .sell{
+	float: left;
+	padding-right: 40px;
+}
+.word-box .green{
+	color: #3faf7a;
+}
+.word-box .score{
+	float: left;
+}
+
+.school-course .price-box{
+	float: right;
+	height: 40px;
+}
+.school-course .price-box>.now-price{
+	width: 100%;
+	height: 24px;
+	font-size: 2rem;
+	line-height: 2.4rem;
+	color: #ea9b65;
+	font-weight: bold;
+	text-align: right;
+}
+.school-course .price-box>.old-price{
+	width: 100%;
+	color: #999;	
+	text-align: right;
+	height: 20px;
+}
+.school-course .price-box>.old-price>span{
+	font-size: 1.2rem;
+	line-height: 1.4rem;
+}
+
+
+
+
+
+
+/*————————Tab切换   2 学校简介——————————————*/
+.school-intro{
+	display: none;
+}
+.school-intro>.title{
+	line-height: 65px;
+	font-size: 1.6rem;
+	color: #333;
+	text-align: center;
+	font-weight: bold;
+}
+.school-intro>.para{
+	padding-top: 10px;
+	font-size: 1.4rem;
+	color: #333;
+	text-indent: 2.8rem;
+	line-height: 35px;
+}
+
+
+
+
+
+/*—————————Tab 切换   3，学校相册————————————*/
+.school-album{
+	display: none;
+}
+.school-album>img{
+	float: left;
+	margin-top: 26px;
+	margin-right: 23px;
+	width: 196px;
+	height: 130px;
+}
+.school-album>img:nth-of-type(4n + 0){
+	margin-right: 0;
+}
+
+
+
+
+
+/*——————————左下   Tab切换   结束    ————————————*/
+
+
+
+
+/*——————————右部侧边栏  开始——————————*/
+
+/*——————上右部 学校地址——————————*/
+.right-box{
+	float: right;
+	width: 295px;
+}
+.right-box>.school-address{
+	box-sizing: border-box;
+	padding: 27px 20px 32px;
+	margin-bottom: 27px;
+	width: 100%;
+	background-color: #fff;
+}
+.school-address>.title{
+	padding-left: 22px;
+	font-size: 1.6rem;
+	color: #333;
+	margin-bottom: 20px;
+}
+.school-address>.title>.icon{
+	float: left;
+	display: inline-block;
+	margin-left: -22px;
+	width: 14px;
+	height: 18px;
+	background: url('../../img/c-offline2.png') no-repeat center;
+	background-size: 100%;
+}
+.school-address>.map{
+	width: 100%;
+	height: 160px;
+}
+.school-address>.map>img{
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
+/*——————右下部 热门学校——————————*/
+.right-box>.hot-school{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 25px 15px 20px 15px;
+	background-color: #fff;
+}
+.hot-school li{
+	margin-bottom: 20px;
+}
+.hot-school>.title{
+	padding-left: 20px;
+	height: 20px;
+	font-size: 1.6rem;
+	color: #333;
+	margin-bottom: 26px;
+}
+
+.hot-school>.title>.icon{
+	display: inline-block;
+	float: left;
+	margin-left: -20px;
+	margin-top: -4px;
+	width: 15px;
+	height: 20px;
+	background: url('../../img/c-course5.png') no-repeat center;
+	background-size: 100%;
+}
+.hot-school>.title>a{
+	float: right;
+	font-size: 1.2rem;
+	color: #666;
+	line-height: 23px;
+}
+
+.hot-school li>a{
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 120px;
+}
+.hot-school li img{
+	float: left;
+	margin-left: -120px;
+	width: 110px;
+	height: 60px;
+}
+.hot-school .para-box>.title{
+	font-size: 1.4rem;
+	color: #333;
+	margin-bottom: 9px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.hot-school .para-box>.list{
+	height: 12px;
+	margin-bottom: 10px;
+}
+.hot-school .para-box>.list>span{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 4px;
+	background: url('../../img/c-course10.png') no-repeat center;
+	background-size: 100%;
+}
+.hot-school .para-box>.list>span.active{
+	background: url('../../img/c-course9.png') no-repeat center;
+	background-size: 100%;
+}
+.hot-school .para-box>.keyword{
+	font-size: 1.2rem;
+	color: #999;
+}
+.hot-school .para-box>.keyword>span{
+	display: inline-block;
+	margin-right: 10px;
+}
+/*——————————右部侧边栏  结束——————————*/
+
+
+
+
+
+
+
+
