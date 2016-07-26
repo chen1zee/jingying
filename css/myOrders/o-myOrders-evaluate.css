@@ -240,8 +240,13 @@ article{
 	height: 16px;
 	background: url(../../img/myOrders/o-stars-logo.png) no-repeat center top;
 	vertical-align: middle;
+	background-position:0px 0px;
 }
-.evaluate-wrap span{
+.evaluate-wrap-experience span{
+	color: red;
+	margin-right: 5px;
+}
+.evaluate-wrap-grade span{
 	color: red;
 	margin-right: 5px;
 }
@@ -286,12 +291,12 @@ article{
 	vertical-align: text-bottom;
 	
 }
-#words-num{
+.words-num{
 	vertical-align: bottom;
 	font-size: 12px;
 	color: #666;
 }
-#evaluate-wrap-submit{
+.evaluate-wrap-submit{
 	width: 108px;
 	height: 33px;
 	margin-top: -56px;
@@ -302,7 +307,7 @@ article{
 	text-align: center;
 	border: none;
 }
-#words-num>span{
+.words-num>span{
 	color: #33B574;
 	margin:0;
 }

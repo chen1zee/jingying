@@ -1,7 +1,9 @@
-$("#words-num span").html(200-$(".refund-details textarea").val().length);
-		function len(){
-			$("#words-num span").html(200-$(".refund-details textarea").val().length);
-		};
+		$(".words-num span").html(200-$(".refund-details textarea").val().length);
+		$("textarea[name='refund-textarea']").focus(function(){
+			$(this).on("keyup",function(){
+				$(this).next().find("span").html(200-$(this).val().length);
+			})
+		})
 		var i = 1;
 		$(".orders-operation-refund").on("click",function(){
 			
