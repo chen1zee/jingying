@@ -82,7 +82,7 @@ article{
 }
 .middle-right-nav-on{
 	color: #33B574!important;
-	border-color:#33B574!important;
+	border-color:#33B574 !important;
 }
 #delete-orders{
 	float:right;
@@ -156,7 +156,7 @@ article{
 	margin-right: 6px;
 	vertical-align: middle;
 }
-#orders-list>li>div:not(:last-child){
+#orders-list>li>div:not(:nth-of-type(8)){
 	display: inline-block;
 	width: 100px;
 	height: 100%;
@@ -193,23 +193,6 @@ article{
 .orders-operation{
 	width: 72px!important;
 }
-.orders-operation-waitToPay{
-	width: 70px;
-	height: 28px;
-	color: white;
-	background-color: #e79c67;
-	line-height: 28px;
-	text-align: center;
-}
-.orders-operation-refund{
-	width: 68px;
-	height: 26px;
-	color: #e79c67;
-	background-color:white;
-	line-height: 28px;
-	border: 1px solid #E79C67;
-	text-align: center;
-}
 .orders-operation-evaluate{
 	width: 68px;
 	height: 26px;
@@ -218,4 +201,139 @@ article{
 	line-height: 28px;
 	border: 1px solid #E79C67;
 	text-align: center;
+}
+
+.evaluate-wrap{
+	display: none;
+	width: 950px!important;
+	height: 370px!important;
+	margin: 0 auto;
+	margin-top: 28px;
+	border-top: 1px solid #E8E8E8;
+	text-align: left!important;
+	border-bottom: 1px solid #E8E8E8;
+	background-color: #FAFAFA;
+	
+}
+.evaluate-wrap>p{
+	height: 34px;
+	margin-bottom: 16px;
+	line-height: 34px;
+}
+.evaluate-wrap-grade{
+	color: #333;
+	height: 34px;
+	font-size: 16px;
+	margin-top: 30px;
+	margin-left: 30px;
+	margin-bottom: 17px;
+	line-height: 34px;
+	text-align: left;
+}
+.evaluate-wrap-grade>p{
+	display: inline-block;
+	 vertical-align: middle;
+}
+.evaluate-wrap-grade>div{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(../../img/myOrders/o-stars-logo.png) no-repeat center top;
+	vertical-align: middle;
+}
+.evaluate-wrap span{
+	color: red;
+	margin-right: 5px;
+}
+.evaluate-wrap-experience{
+	color: #333;
+	font-size: 16px;
+	margin-left: 30px;
+	margin-bottom: 15px;
+	line-height: 1;
+	text-align: left;
+}
+.evaluate-wrap-experience>div{
+	display: inline-block;
+	width: 560px;
+	height: 86px;
+	margin-left: -2px;
+	background-color: #FAFAFA;
+	border: 1px solid #E0E0E0;
+	vertical-align: top;
+}
+.refund-details{
+	height: 140px;
+}
+.refund-details>p{
+	display: inline-block;
+	margin-left: 43px;
+	margin-right: 0;
+	line-height: 16px;
+	color: #333;
+	font-size: 16px;
+	vertical-align: top;
+}
+.refund-details>textarea{
+	width: 540px;
+	height: 100px;
+	padding: 10px;
+	resize: none;
+	border: 1px solid #E0E0E0;
+	background-color: white;
+	font-size: 14px;
+	text-align: left!important;
+	vertical-align: text-bottom;
+	
+}
+#words-num{
+	vertical-align: bottom;
+	font-size: 12px;
+	color: #666;
+}
+#evaluate-wrap-submit{
+	width: 108px;
+	height: 33px;
+	margin-top: -56px;
+	margin-left: 95px;
+	background-color: #33B574;
+	color: white;
+	font-size: 14px;
+	text-align: center;
+	border: none;
+}
+#words-num>span{
+	color: #33B574;
+	margin:0;
+}
+
+/*自定义checkbox样式*/
+.checkbox {
+  display: inline-block;
+  width: 14px!important;
+  min-height: 14px;
+  padding-left: 14px;
+  position: relative;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+}
+input[type="checkbox"] + span:before {
+  background: url(../../img/myOrders/o-checkbox-logo.png);
+  content: " ";
+  height: 14px;
+  left: 0;
+  position: absolute;
+  width: 14px;
+}
+input[type="checkbox"] {
+  box-sizing: border-box;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+}
+input[type="checkbox"]:checked + span:before {
+  background-position: 0 -14px;
 }

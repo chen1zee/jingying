@@ -4,6 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="../../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/myOrders/o-myOrders-allOrders.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/myOrders/o-myOrders-refund-wrap.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/myOrders/o-myOrders-evaluate.css"/>
 		<meta charset="UTF-8">
 		<title>allOrders</title>
 	</head>
@@ -27,7 +28,7 @@
 					<a href="###"><li class="middle-right-nav-on">全部</li></a>
 					<a href="###"><li>待付款</li></a>
 					<a href="o-myOrder-payed.html"><li>已支付</li></a>
-					<a href="###"><li>待评价</li></a>
+					<a href="o-myOrders-evaluate.html"><li>待评价</li></a>
 					<a href="###"><li>已完成</li></a>
 					<a href="###"><li>已取消</li></a>
 					<div id="delete-orders">
@@ -37,7 +38,12 @@
 				</ul>
 				<ul id="orders-list">
 					<div id="orders-list-top">
-						<input type="checkbox" name="allFlag" id="allFlag" value="" />
+						<div class="checkbox" id="orders-list-allFlag">
+  							<label>
+  								<input type="checkbox" name="">
+  								<span></span>
+  							</label>
+						</div>
 						<p>全选</p>
 						<p>订单信息</p>
 						<p>下单时间</p>
@@ -47,7 +53,12 @@
 						<p>操作</p>
 					</div>
 					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
+						<div class="checkbox">
+  							<label>
+  								<input type="checkbox" name="checkbox">
+  								<span></span>
+  							</label>
+						</div>
 						<div class="orders-info">
 							<img class="orderlist-img" src="../../img/c-course1.png"/>
 							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
@@ -60,7 +71,12 @@
 						<div class="orders-operation"><a href="###"><p class="orders-operation-waitToPay">付款</p></a></div>
 					</li>
 					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
+						<div class="checkbox">
+  							<label>
+  								<input type="checkbox" name="checkbox">
+  								<span></span>
+  							</label>
+						</div>
 						<div class="orders-info">
 							<img class="orderlist-img" src="../../img/c-course1.png"/>
 							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
@@ -96,7 +112,12 @@
 						</div>
 					</li>
 					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
+						<div class="checkbox">
+  							<label>
+  								<input type="checkbox" name="checkbox">
+  								<span></span>
+  							</label>
+						</div>
 						<div class="orders-info">
 							<img class="orderlist-img" src="../../img/c-course1.png"/>
 							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
@@ -106,11 +127,37 @@
 						<div class="orders-amount">1</div>
 						<div class="orders-money">￥18900</div>
 						<div class="orders-payment">已完成</div>
-						<div class="orders-operation"><a href="###"><p class="orders-operation-evaluate">评价</p></a></div>
+						<div class="orders-operation"><p class="orders-operation-evaluate">评价</p></div>
+						<div class="evaluate-wrap">
+							<div class="evaluate-wrap-grade">
+								<p><span>&lowast;</span>评分：</p>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+							
+							<div class="evaluate-wrap-experience">
+								<span>&lowast;</span>心得：
+								<div></div>
+							</div>
+							<div class="refund-details">
+								<p>评价：</p>
+								<textarea name="" onkeyup="len()" onkeydown="len()" maxlength="200"></textarea>
+								<span id="words-num">还可以填写个<span></span>字</span>
+							</div>
+							<button id="evaluate-wrap-submit">发表评价</button>
+						</div>
 					</li>
 					
 					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
+						<div class="checkbox">
+  							<label>
+  								<input type="checkbox" name="checkbox">
+  								<span></span>
+  							</label>
+						</div>
 						<div class="orders-info">
 							<img class="orderlist-img" src="../../img/c-course1.png"/>
 							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
@@ -123,7 +170,12 @@
 						<div class="orders-operation">已评价</div>
 					</li>
 					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
+						<div class="checkbox">
+  							<label>
+  								<input type="checkbox" name="checkbox">
+  								<span></span>
+  							</label>
+						</div>
 						<div class="orders-info">
 							<img class="orderlist-img" src="../../img/c-course1.png"/>
 							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
@@ -136,7 +188,12 @@
 						<div class="orders-operation">处理中</div>
 					</li>
 					<li>
-						<input type="checkbox" class="orders-checklist" name="" id="" value="" />
+						<div class="checkbox">
+  							<label>
+  								<input type="checkbox" name="checkbox">
+  								<span></span>
+  							</label>
+						</div>
 						<div class="orders-info">
 							<img class="orderlist-img" src="../../img/c-course1.png"/>
 							<p class="orders-name">儿童手工纸 彩色皱纹纸DIY材料 手揉纸 幼儿园环境布置智</p>
@@ -156,6 +213,14 @@
 		
 		<footer></footer>
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="o-myOrders-refund-wrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/myOrders/o-myOrders-refund-wrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/myOrders/o-myOrders-revaluate-wrap.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/myOrders/o-myOrders-allFlag.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		$("body").click(function(){
+			$("article").css("height",$("#middle-right").height()+100+"px");
+		})
+			
+		</script>
 	</body>
 </html>

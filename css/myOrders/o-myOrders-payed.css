@@ -122,9 +122,8 @@ article{
 	border-bottom: 1px solid #E8E8E8;
 	background-color: #FAFAFA;
 }
-#orders-list-top>input{
+#orders-list-top>div{
 	margin-left: 16px;
-	margin-right: 6px;
 }
 #orders-list-top>p{
 	display: inline-block;
@@ -165,11 +164,11 @@ article{
 	font-size: 14px;
 	color: #333333;
 }
-#orders-list>li>div:not(:nth-of-type(1)){
+#orders-list>li>div:not(:nth-of-type(2)){
 	text-align: center;
 	line-height: 66px;
 }
-#orders-list>li>div:nth-of-type(1){
+#orders-list>li>div:nth-of-type(2){
 	position: relative;
 	width: 424px;
 	height: 100%;
@@ -332,4 +331,34 @@ article{
 #words-num>span{
 	color: #33B574;
 	margin:0;
+}
+/*自定义checkbox样式*/
+.checkbox {
+  display: inline-block;
+  width: 14px!important;
+  min-height: 14px;
+  padding-left: 14px;
+  position: relative;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+}
+input[type="checkbox"] + span:before {
+  background: url(../../img/myOrders/o-checkbox-logo.png);
+  content: " ";
+  height: 14px;
+  left: 0;
+  position: absolute;
+  width: 14px;
+}
+input[type="checkbox"] {
+  box-sizing: border-box;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+}
+input[type="checkbox"]:checked + span:before {
+  background-position: 0 -14px;
 }
