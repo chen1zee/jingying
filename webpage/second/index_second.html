@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>课程详情</title>
 	<link rel="stylesheet" href="../../css/reset.css">
-	<link rel="stylesheet" href="../../css/index_second.css">
+	<link rel="stylesheet" href="../../css/second/index_second.css">
 	<link rel="stylesheet" href="../../css/pub-style.css">
 
 </head>
@@ -66,7 +66,7 @@
 				<div class="block-left">
 					<!-- 这是三个轮播图 -->
 					<ul>
-						<li>
+						<li style="display: block;">
 							<a href="javascript:void(0);">
 								<img src="../../img/h-loop1.png">
 							</a>
@@ -111,25 +111,25 @@
 						</div>
 					<!-- 四个链接 -->
 						<div class="user-middle-content">
-							<div>
+							<div class="middle-one">
 								<a href="javascript:void(0)">
 									<strong class="strong-one"></strong>
 									<span>1.理论学习</span>
 								</a>
 							</div>
-							<div>
+							<div class="middle-two">
 								<a href="javascript:void(0)">
 									<strong class="strong-two"></strong>
 									<span>2.大牛答疑</span>
 								</a>
 							</div>
-							<div>
+							<div class="middle-three">
 								<a href="javascript:void(0)">
 									<strong class="strong-three"></strong>
 									<span>3.在线评估</span>
 								</a>
 							</div>
-							<div>
+							<div class="middle-four">
 								<a href="javascript:void(0)">
 									<strong class="strong-four"></strong>
 									<span>4.线下实训</span>
@@ -311,6 +311,10 @@
 					</li>
 
 				</ul>
+
+
+
+
 			</div>
 
 			<!-- 合作机构 -->
@@ -392,6 +396,25 @@
 
 
 	<!-- 中间主体   结束 -->
+
+	<!-- 返回顶部  开始-->
+	<div class="goTop">
+		<div class="goTop-link">
+			<a href="http://weixin.com" target="_self"><img src="../../img/h-go-top1.png" class="weixin"><span>公众号</span></a>
+		</div>
+		<div class="goTop-link">
+			<a href="javascript:void(0)" target="_self"><img src="../../img/h-go-top2.png" class="page"><span>问卷调查</span></a>
+		</div>
+		<div class="goTop-link">
+			<a href="javascript:void(0)" target="_self"><img src="../../img/h-go-top3.png" class="write-page"></a>
+		</div>
+		<div class="goTop-btn"></div>
+	</div>
+
+	<!-- 返回顶部  结束-->
+	
+
+
 
 
 	<!-- 页脚   开始 -->
@@ -523,7 +546,6 @@
 		蓝鸥科技有限公司©1997-2016 | 北京市海淀区清河毛纺路路南甲36号金五星商业大厦5层
 	</p>
 
-
 	<!-- 页脚   结束 -->
 
 	<script type="text/javascript" src="../../js/jquery.min.js"></script>
@@ -568,6 +590,8 @@
 	})
 
 		
+
+		// 点击循环有问题
 		$(function(){
 			var suffix = 0;//当前图片的下标
 			var perWidth = 166;//每张图片的宽度
@@ -598,6 +622,12 @@
 				},500)
 			})
 
+
+			$('.goTop-btn').click(function(){
+				$('html,body').animate({
+					scrollTop:0
+				},500,'swing')
+			})
 
 		})
 		

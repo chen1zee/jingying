@@ -13,7 +13,7 @@
 	margin-bottom: 30px;
 }
 
-.lesson-list-top img {
+.img-top {
 	float: left;
 	margin-right: 30px;
 }
@@ -54,10 +54,78 @@
 }
 
 .share {
-	width: 100px;
-	height: 50px;
-	background-color: red;
+	width: 150px;
+	height: 65px;
 	float: right;
+	text-align: right;
+	margin-top: 20px;
+	position: relative;
+}
+
+.share span {
+	padding-right: 10px;
+	font-size: 14px;
+}
+
+.share-link {
+	height: 30px;
+	width: 145px;   
+	border-radius: 5px;
+	border: 1px solid #e8e8e8;
+	background-color:#e8e8e8; 
+	margin-top: 10px;
+	display: none;
+	
+}
+
+.div-link {
+	width: 131px;
+	height: 16px;
+	margin: 7px auto;
+}
+.arrow {
+	width: 0;
+	height: 0;
+	border: 8px solid ;
+	border-color:transparent transparent #e8e8e8 transparent ;
+	position: absolute;
+	top: 16px;
+	right: 47px;
+
+}
+
+.share-link a {
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: url(../../img/h-share-link.png) no-repeat;
+	display: block;
+	margin-right: 7px;
+}
+
+.share-link .link1 {
+	background-position: -4px -2px;
+}
+
+.share-link .link2 {
+	background-position: -4px -38px;
+}
+
+.share-link .link3 {
+	background-position: -4px -73px;
+}
+
+.share-link .link4 {
+	background-position: -4px -109px;
+}
+
+.share-link .link5 {
+	background-position: -4px -144px;
+}
+
+.share-link .link6 {
+	background-position: -4px -180px;
+	margin-right: 0px;
 }
 
 .lesson-time {

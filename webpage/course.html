@@ -60,7 +60,7 @@
 	<div class="main">
 		<!-- 上面的 -->
 		<div class="lesson-list-top clearfix">
-			<img src="../img/h-lesson-list.png">
+			<img src="../img/h-lesson-list.png" class="img-top">
 			<!-- 描述 -->
 			<div class="describe">
 				<p class="p-title">unity3D基础课程A段项目</p>
@@ -78,7 +78,21 @@
 			</div>
 			<!-- 分享 -->
 			<div class="share">
-					
+				<span>
+					<img src="../img/h-share.png">
+					分享
+				</span>
+				<div class="share-link clearfix">
+					<div class="arrow"></div>
+					<div class="div-link">
+						<a href="javascript:void(0)" class="link1"></a>
+						<a href="javascript:void(0)" class="link2"></a>
+						<a href="javascript:void(0)" class="link3"></a>
+						<a href="javascript:void(0)" class="link4"></a>
+						<a href="javascript:void(0)" class="link5"></a>
+						<a href="javascript:void(0)" class="link6"></a>
+					</div>
+				</div>
 			</div>
 			<!-- 暂时用图片代替 -->
 			<img src="../img/h-lesson-time.png" class="lesson-time">
@@ -395,5 +409,18 @@
 	<!-- 页脚   结束 -->
 
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".share span").mouseenter(function(){
+				$('.share-link').css('display','block');
+			});
+
+			$(".share-link").mouseleave(function(){
+				$('.share-link').css('display','none');
+			})
+
+
+		})
+	</script>
 </body>
 </html>

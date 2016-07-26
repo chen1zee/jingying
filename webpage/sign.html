@@ -47,46 +47,47 @@
 		<div class="login-box">
 			<!-- 标题 -->
 			<div class="login-title clearfix">
-				<a href="javascript:void(0)" class="loginBtn">登录</a>
+				<a href="javascript:void(0)" class="loginBtn active">登录</a>
 				<a href="javascript:void(0)" class="registerBtn">注册</a>
 			</div>
 			<!-- 输入框 -->
 			<div class="logincont">
-				<form action="" method="post" name="login">
+				<form action="" method="post" name="login" class="form-login">
 					<!-- 输入手机号 -->
 					<div class="phone-box clearfix">
 						<span></span>
-						<input type="text" placeholder="请输入手机号" name="phone" id="phone">
+						<input type="text" placeholder="请输入手机号" name="phone" class="loginPhone">
 					</div>
 					<!-- 提示错误 -->
-					<div class="error">
+					<div class="error error1">
 						<em></em>
-						"手机号码格式不正确"	
+						<span><!-- 手机号码格式不正确 --></span>
 					</div>
 					<!-- 密码 -->
 					<div class="password-box">
 						<span></span>
-						<input type="password" name="password" placeholder="请输入密码">
+						<input type="password" name="password" placeholder="请输入密码" class="loginPassword">
 					</div>
 					<!-- 提示错误 -->
-					<div class="error">
+					<div class="error error2">
 						<em></em>
-						"密码不能为空"
+						<span><!-- 密码不能为空 --></span>
 					</div>
 					<!-- 验证码 -->
 					<div class="code">
 						<div class="code-left">
 							<span></span>
-							<input type="text" name="code" placeholder="验证码">
+							<input type="text" name="code" placeholder="验证码" class="loginCode">
 						</div>
 						<div class="code-right">
 							<img src="###" title="点击更换图片">
 						</div>
 					</div>
 					<!-- 提示错误 -->
-					<div class="error">
+					<div class="error error3">
 						<em></em>
-						"请输入验证码"
+						<span><!-- 请输入验证码 --></span>
+						
 					</div>
 					<!-- 记住我 -->
 					<div class="rememberMe">
@@ -105,8 +106,226 @@
 
 				</form>
 			</div>
-		</div>
 
+			<!-- 注册框 -->
+			<div class="registercont">
+				<form action="" method="post" name="regist" class="form-register">
+					<!-- 注册手机号 -->
+					<div class="register-phone clearfix" >
+						<span></span>
+						<input type="text" placeholder="请输入手机号" name="num" class="registPhone">
+					</div>
+					<!-- 提示错误 -->
+					<div class="error error4">
+						<em></em>
+						<span><!-- 该手机号已使用 --></span>
+						
+					</div>
+					<!-- 验证码 -->
+					<div class="code">
+						<div class="code-left">
+							<span></span>
+							<input type="text" name="code" placeholder="验证码" class="registCode">
+						</div>
+						<div class="code-right">
+							获取验证码
+						</div>
+					</div>
+					<!-- 提示错误 -->
+					<div class="error error5">
+						<em></em>
+						<span><!-- 验证码不能为空 --></span>
+						
+					</div>
+					<!-- 密码 -->
+					<div class="password-box">
+						<span></span>
+						<input type="password" name="password" placeholder="请输入密码" class="registPassword">
+					</div>
+					<!-- 提示错误 -->
+					<div class="error error6">
+						<em></em>
+						<span><!-- 密码不能为空 --></span>
+						
+					</div>
+					<!-- 再次输入密码 -->
+					<div class="password-again-box">
+						<span></span>
+						<input type="password" name="password" placeholder="请重新输入密码" class="registAgainPassword">
+					</div>
+					<!-- 提示错误 -->
+					<div class="error error7">
+						<em></em>
+						<span>	<!-- 请再次输入密码 --></span>
+					
+					</div>
+					<!-- 记住我 -->
+					<div class="rememberMe">
+						<p class="remember">
+							<input type="checkbox" name="auto" checked="checked" class="checkbox">
+							同意网站条款
+						</p>
+					</div>
+					<!-- 登录 -->
+					<div class="button">
+						<input type="submit" name="submit" class="submit" value="提交">
+					</div>
+				</form>
+			</div>
+		</div>	
 	</div>
+
+	<!-- 底下的部分 -->
+	<footer>
+		<div class="login-footer">
+			<span class="left">蓝鸥科技有限公司©1997-2016</span>
+			<span class="middle">|</span>
+			<span class="right">北京市海淀区清河毛纺路路南甲36号金五星商业大厦5层</span>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".login-title a").click(function(){
+				$(this).addClass('active').siblings().removeClass('active');
+				$('.logincont').css('display','none').eq($(this).index()).css('display','block');
+				$('.registercont').css('display','block').eq($(this).index()).css('display','none');				
+			})
+
+		// 获取验证码倒计时
+		var wait=60;  
+		function time(obj) {  
+        if (wait == 0) {   
+            $(".code-right").removeAttr("disabled");          
+            $(".code-right").html("获取验证码").css({
+            	'color':'#29b572',
+            	'font-size':'12px',
+            	'backgroundColor':'#fff'
+            }); 
+            wait = 60;  
+        } else {  
+            $(".code-right").attr("disabled",true);   
+            $(".code-right").html(wait + "秒").css({
+					'color':'#fff',
+					'backgroundColor':'#cccccc',
+					'font-size':'14px'
+				});
+
+            wait--;  
+            setTimeout(function() {  
+                time(obj); 
+            },  
+            1000)  
+        } 
+   	 }  
+      $(".code-right").click(function(){
+		time(this); 
+	}) 
+
+
+      // 正则验证
+
+      // 登录手机号码验证
+    $(".loginPhone").blur(function () {//这里和数据库的验证暂时没写
+        var tel = $(".loginPhone").val();
+        var reg = /^1\d{10}$/;
+        if (reg.test(tel)) {
+            $(".error1").css('display','none');;
+        }
+        else{
+            $(".error1 span").text("您输入的手机号码格式不正确");
+            $(".error1 ").css('display','block');
+         }
+
+         if(tel.length == 0) {
+     		$(".error1 span").text("手机号码不能为空");
+     		$(".error1 ").css('display','block');
+     	}
+    });
+
+      // 注册手机号码验证  
+    $(".registPhone").blur(function () {//这里和数据库的验证暂时没写
+        var tel = $(".registPhone").val();
+        var reg = /^1\d{10}$/;
+        if (reg.test(tel)) {
+            $(".error4").css('display','none');
+        }
+        else{
+            $(".error4 span").text("您输入的手机号码格式不正确");
+            $(".error4 ").css('display','block');
+         }
+
+         if(tel.length == 0) {
+     		$(".error4 span").text("手机号码不能为空");
+     		$(".error4 ").css('display','block');
+     	}
+
+    });
+
+    //登录密码验证
+    $(".loginPassword").blur('click',function(){//这里和数据库的验证暂时没写
+     	var tel = $(".loginPassword").val();
+     	if(tel.length == 0) {
+     		$(".error2 span").text("密码不能为空");
+     		$(".error2 ").css('display','block');
+     	}else {
+     		$(".error2 ").css('display','none');
+     	}
+     })
+
+    //登录验证码
+     $(".loginCode").blur('click',function(){//这里和数据库的验证暂时没写
+     	var tel = $(".loginCode").val();
+     	if(tel.length == 0) {
+     		$(".error3 span").text("验证码不能为空");
+     		$(".error3 ").css('display','block');
+     	}else {
+     		$(".error3 ").css('display','none');
+     	}
+     })
+
+     // 注册验证码
+     $(".registCode").blur('click',function(){//这里和数据库的验证暂时没写
+     	var tel = $(".registCode").val();
+     	if(tel.length == 0) {
+     		$(".error5 span").text("验证码不能为空");
+     		$(".error5").css('display','block');
+     	}else {
+     		$(".error5").css('display','none');
+     	}
+     })
+
+     //注册的密码
+      $(".registPassword").blur('click',function(){//这里和数据库的验证暂时没写
+     	var tel = $(".registPassword").val();
+     	if(tel.length == 0) {
+     		$(".error6 span").text("密码不能为空");
+     		$(".error6 ").css('display','block');
+     	}else {
+     		$(".error6").css('display','none');
+     	}
+     })
+
+      $(".registAgainPassword").blur('click',function(){//这里和数据库的验证暂时没写
+     	var tel = $(".registAgainPassword").val();
+     	var tel1 = $(".registPassword").val();
+     	if(tel.length == 0) {
+     		$(".error7 span").text("密码不能为空");
+     		$(".error7 ").css('display','block');
+     	}else {
+     		$(".error7").css('display','none');
+     	}
+
+     	if(tel!==tel1) {
+     		$(".error7 span").text("密码不一致");
+     		$(".error7 ").css('display','block');
+     	}else {
+     		$(".error7").css('display','none');
+     	}
+     })
+
+})
+	</script>
 </body>
 </html>
