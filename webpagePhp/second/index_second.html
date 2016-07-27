@@ -205,12 +205,12 @@
 						<p>正在录制，敬请期待!</p>
 
 					</li>
-					<li>
+					<li class="li-four">
 						<img src="../../img/h-lesson-h5.png">
 						<p>正在录制，敬请期待!</p>
 
 					</li>
-					<li>
+					<li class="li-five">
 						<img src="../../img/h-lesson-more.png">
 					</li>
 				</ul>
@@ -353,7 +353,7 @@
 						<a href="###" class="firm">
 							<img src="../../img/h-cooperation10.png">
 						</a>
-						<!-- <a href="###" class="firm">
+						<a href="###" class="firm">
 							<img src="../../img/h-cooperation1.png">
 						</a>
 						<a href="###" class="firm">
@@ -382,7 +382,7 @@
 						</a>
 						<a href="###" class="firm">
 							<img src="../../img/h-cooperation10.png">
-						</a> -->
+						</a>
 					</div>
 
 					<a class="left-arrow" href="javascript:void(0);">&lt;</a>
@@ -599,13 +599,11 @@
 			//下一张
 			$(".right-arrow").on("click",function() {
 				suffix++;
-				if(suffix > 7) {
+				if(suffix > 13) {
 					suffix = 0;
 				}
 				$(".cooperation-firm").animate({
 					left:-suffix * perWidth,
-					
-					
 
 				},500)
 			})
@@ -614,7 +612,7 @@
 			$(".left-arrow").on("click",function() {
 				suffix--;
 				if(suffix < 0) {
-					suffix = 3;
+					suffix = 13;
 				}
 				$(".cooperation-firm").animate({
 					left:-suffix * perWidth,
@@ -623,6 +621,7 @@
 			})
 
 
+			// 回到顶部
 			$('.goTop-btn').click(function(){
 				$('html,body').animate({
 					scrollTop:0
