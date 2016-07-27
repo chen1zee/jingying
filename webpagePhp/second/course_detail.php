@@ -18,7 +18,7 @@
 
 
 
-	// $id = $GET['id'];------后面该回来
+	// $id = $_GET['id'];------后面该回来
 	$id = 1;
 	$sql = 'select * from `c-offline-course` where `id`='.$id;
 	$result = mysql_query($sql);
@@ -123,7 +123,7 @@
 
 			<!-- 上右部 文字框 -->
 			<div class="intro-box">
-				<h3 class="title">
+				<h3 class="title" id="coursename">
 					<?php echo $row['coursename']; ?>
 				</h3>
 				<p class="company">
@@ -145,7 +145,7 @@
 						&yen;<?php echo $row['now_price']; ?>	
 					</span>
 					<del class="old-price">
-						&yen;<?php echo $row['old-price']; ?>
+						&yen;<?php echo $row['old_price']; ?>
 					</del>
 					<p>
 						<span>报名订金</span>
@@ -590,13 +590,7 @@
 						大家印象：
 					</span>
 					<p class="tag clearfix">
-						<?php 
-							$taps = split('N', $row['tap_list']);
-							for ($i=0; $i < count($taps); $i++) { 
-								echo '<span>'.$taps[$i].'('.$row[$taps[$i]].')</span>';
-								# code...
-							}
-						 ?>
+					
 
 						<!-- <span>交通便利(323)</span>
 						<span>学习气氛浓厚(1200)</span> -->
@@ -611,7 +605,17 @@
 					<!-- !!!用php 初始化 生成 此段内容!! -->
 					<!-- 根据  #commentNum总数 来生成共几页-->
 				<div class="comment-content">
-					<p class="title">评价内容(<span id="commentNum">100</span>)</p>
+					<p class="title">评价内容(<span id="commentNum">						
+<?php 
+	$sql = 'select * from `c-offline-course-comment` where `coursename` = \''.$row['coursename'].'\'';
+	$result = mysql_query($sql);
+	echo mysql_num_rows($result);//-----获取评论的总条数
+
+ ?>
+
+
+					</span>)</p>
+
 					<div class="para-content">
 						<ul class="comment-detail">
 							<!-- <li>
@@ -637,16 +641,13 @@
 
 
 
-<?php 
-	$sql = 'select * from `c-offline-course-comment` where coursename = \''.$row['coursename'].'\'';
- ?>
 							
 						</ul>
 
 						<div class="paganation" id="paganation">
 							<a href="###" id="prev">上一页</a>
 							<ul class="clearfix">
-								<li class="active">1</li>
+								<!-- <li class="active">1</li>
 								<li>2</li>
 								<li>3</li>
 								<li>4</li>
@@ -656,7 +657,7 @@
 								<li>8</li>
 								<li>9</li>
 								<li class="none">...</li>
-								<li>100</li>
+								<li>100</li> -->
 							</ul>
 							<a href="###" id="next">下一页</a>
 
@@ -987,5 +988,6 @@
 
 	<script type="text/javascript" src="../../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/second/c-course_detail.js"></script>
+	
 </body>
 </html>
