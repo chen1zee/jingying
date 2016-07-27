@@ -444,7 +444,7 @@
 	display: inline-block;
 	background-color: #ffb200;
 	height: 100%;
-	width: 50%;/*  -------加入数据库后注释掉-----*/
+	
 }
 .comment-box .wrap>.right{
 	float: left;
@@ -498,6 +498,9 @@
 	padding-right: 21px;
 	border:1px solid #e8e8e8;
 	border-top: 0;
+}
+.comment-detail{
+	min-height: 360px;
 }
 .comment-detail li{
 	padding-top: 20px;

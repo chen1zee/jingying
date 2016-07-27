@@ -1,3 +1,37 @@
+<?php 
+	include_once('../../js/c-conn.php');
+
+	//  // *************中文的搜索方式*****************
+	// $coursename = $GET['course_name'];-------后面加回来连接GET传送
+	
+	// $coursename = '一年会员-购买专用连接仅用于购买用-中艺摄影网校';
+
+	// $sql = 'select * from `c-offline-course` where `coursename`=\''.$coursename.'\'';
+	// $result = mysql_query($sql);
+
+	// if (mysql_affected_rows() == 1) {
+	// 	echo "asdasdasdasd";
+	// 	$row = mysql_fetch_assoc($result);
+	// 	# code...
+	// }
+	//  // *************中文的搜索方式*****************
+
+
+
+	// $id = $GET['id'];------后面该回来
+	$id = 1;
+	$sql = 'select * from `c-offline-course` where `id`='.$id;
+	$result = mysql_query($sql);
+	if (mysql_affected_rows() == 1) {
+		$row = mysql_fetch_assoc($result);
+		# code...
+	}
+ ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,43 +124,53 @@
 			<!-- 上右部 文字框 -->
 			<div class="intro-box">
 				<h3 class="title">
-					一年会员-购买专用连接仅用于购买用-中艺摄影网校
+					<?php echo $row['coursename']; ?>
 				</h3>
 				<p class="company">
 					<span class="icon home"></span>
-					<span>蓝鸥科技教育有限公司</span>
+					<span>
+						<?php echo $row['schoolname']; ?>
+					</span>
 					<a href="###">[公司详情]</a>
 				</p>
 				<p class="company">
 					<span class="icon location"></span>
-					<span>北京市海淀区清河中街金五星大厦五楼</span>
+					<span>
+					<?php echo $row['address']; ?>
+					</span>
 				</p>
 
 				<div class="price-box">
-					<span class="now-price">&yen;1288</span>
-					<del class="old-price">&yen;1500</del>
+					<span class="now-price">
+						&yen;<?php echo $row['now_price']; ?>	
+					</span>
+					<del class="old-price">
+						&yen;<?php echo $row['old-price']; ?>
+					</del>
 					<p>
 						<span>报名订金</span>
-						<span class="white">&yen;99.9</span>
+						<span class="white">
+							&yen;<?php echo $row['subscription']; ?>
+						</span>
 					</p>
 				</div>
 				<div class="sell-box clearfix">
 					<a href="###">
 						<span>已售</span>
 						<span class="green">
-							342
+							<?php echo $row['sell_num']; ?>
 						</span>
 					</a>
 					<a href="###">
 						<span>评分</span>
 						<span class="green">
-							8.9
+							<?php echo $row[score]; ?>
 						</span>
 					</a>
 					<a href="###">
 						<span>评价</span>
 						<span class="green">
-							1200
+							<?php echo $row['comment_people']; ?>
 						</span>
 						<span>人</span>
 					</a>
@@ -157,24 +201,35 @@
 					<div class="content clearfix">
 						<p class="title">课程类型：</p>
 						<p class="para">
-							4个月IOS高薪就业班
+							<?php echo $row['type']; ?>
 						</p>
 					</div>
 					<div class="content clearfix">
 						<p class="title">上课人数：</p>
-						<p class="para">55人</p>
+						<p class="para">
+						<?php echo $row['class_number']; ?>
+							人
+						</p>
 					</div>
 					<div class="content clearfix">
 						<p class="title">课程周期：</p>
-						<p class="para">12个月</p>
+						<p class="para">
+							<?php echo $row['course_time']; ?>
+							个月
+						</p>
 					</div>
 					<div class="content clearfix">
 						<p class="title">课程价格：</p>
-						<p class="para">1280元</p>
+						<p class="para">
+						<?php echo $row['now_price']; ?>
+							元
+						</p>
 					</div>
 					<div class="content clearfix">
 						<p class="title">学校地址：</p>
-						<p class="para">北京市海淀区清河中街金五星商厦</p>
+						<p class="para">
+							<?php echo $row['address']; ?>
+						</p>
 					</div>
 				</div>
 
@@ -182,25 +237,25 @@
 					<div class="content clearfix">
 						<p class="title">适合人群：</p>
 						<p class="para">
-							新华网北京4月25日电 春风拂面，麦浪滚滚。4月25日，习近平总书记一行驱车来到安徽省滁州市凤阳县小岗村，下麦田、农家。他来到“当年农家”院落
+							<?php echo $row['fit_people']; ?>
 						</p>
 					</div>
 					<div class="content clearfix">
 						<p class="title">教学内容：</p>
 						<p class="para">
-							新华网北京4月25日电 春风拂面，麦浪滚滚。4月25日，习近平总书记一行驱车来到安徽省滁州市凤阳县小岗村，下麦田、农家。他来到“当年农家”院落
+							<?php echo $row['course_content']; ?>
 						</p>
 					</div>
 					<div class="content clearfix">
 						<p class="title">学习目标：</p>
 						<p class="para">
-							新华网北京4月25日电 春风拂面，麦浪滚滚。4月25日，习近平总书记一行驱车来到安徽省滁州市凤阳县小岗村，下麦田、农家。他来到“当年农家”院落
+							<?php echo $row['study_target']; ?>
 						</p>
 					</div>
 					<div class="content clearfix">
 						<p class="title">使用教材：</p>
 						<p class="para">
-							新华网北京4月25日电 春风拂面，麦浪滚滚。4月25日，习近平总书记一行驱车来到安徽省滁州市凤阳县小岗村，下麦田、农家。他来到“当年农家”院落
+							<?php echo $row['teach_material']; ?>
 						</p>
 					</div>
 				</div>
@@ -473,25 +528,34 @@
 					<!-- 头部 大 分数 -->
 				<div class="summary clearfix">
 
-					<div class="score-box">
-						<p class="score">5.2</p>
-						<div class="star-list clearfix">
-							<span class="active"></span>
-							<span class="active"></span>
-							<span class="active"></span>
+					<div class="score-box" id="scoreBox">
+						<p class="score">
+							<?php echo $row['score']; ?>
+						</p>
+						<div class="star-list clearfix" id="starList">
+							<span></span>
+							<span></span>
+							<span></span>
 							<span></span>
 							<span></span>
 						</div>
-						<p class="num">该课程共56人评论</p>
+						<p class="num">
+							该课程共
+							<?php echo $row['comment_people']; ?>
+							人评论
+						</p>
 					</div>
 					<div class="mid-bar"></div>
-					<div class="percent-box">
+					<div class="percent-box" id="percentBox">
 						<div class="top wrap clearfix">
 							<span class="left">好评</span>
 							<div class="bar">
 								<span></span>
 							</div>
-							<span class="right">12315人</span>
+							<span class="right">
+								<?php echo $row['good_comment']; ?>
+								人
+							</span>
 
 						</div>
 						<div class="mid wrap clearfix">
@@ -499,7 +563,10 @@
 							<div class="bar">
 								<span></span>
 							</div>
-							<span class="right">1532人</span>
+							<span class="right">
+								<?php echo $row['mid_comment'] ?>
+								人
+							</span>
 
 						</div>
 						<div class="low wrap clearfix">
@@ -507,7 +574,10 @@
 							<div class="bar">
 								<span></span>
 							</div>
-							<span class="right">800人</span>
+							<span class="right">
+								<?php echo $row['bad_comment'] ?>
+								人
+							</span>
 
 						</div>
 
@@ -520,14 +590,18 @@
 						大家印象：
 					</span>
 					<p class="tag clearfix">
-						<span>交通便利(323)</span>
-						<span>学习气氛浓厚(1200)</span>
-						<span>交通便利(323)</span>
-						<span>学习气氛浓厚(1200)</span>
-						<span>交通便利(323)</span>
-						<span>学习气氛浓厚(1200)</span>
-						<span>交通便利(323)</span>
-						<span>学习气氛浓厚(1200)</span>
+						<?php 
+							$taps = split('N', $row['tap_list']);
+							for ($i=0; $i < count($taps); $i++) { 
+								echo '<span>'.$taps[$i].'('.$row[$taps[$i]].')</span>';
+								# code...
+							}
+						 ?>
+
+						<!-- <span>交通便利(323)</span>
+						<span>学习气氛浓厚(1200)</span> -->
+
+						
 					</p>
 				</div>
 
@@ -540,7 +614,7 @@
 					<p class="title">评价内容(<span id="commentNum">100</span>)</p>
 					<div class="para-content">
 						<ul class="comment-detail">
-							<li>
+							<!-- <li>
 								<div class="head-content clearfix">
 									<div class="user-score">
 										<span class="active"></span>
@@ -559,47 +633,14 @@
 								<p class="para">
 									很满意特别划算 真不错很详细 有耐心。很满意特别划算真不错很详细 有耐心很满意特别划算真不错很详细有耐心很满意特别划算真不错很详细有耐心很满意特别划算真不错很详细 有耐心
 								</p>
-							</li>
-							<li>
-								<div class="head-content clearfix">
-									<div class="user-score">
-										<span class="active"></span>
-										<span class="active"></span>
-										<span class="active"></span>
-										<span></span>
-										<span></span>
-									</div>
-									<p class="user-name">
-										刘 * * 疯
-									</p>
-									<p class="date">
-										2015-01-28
-									</p>
-								</div>
-								<p class="para">
-									很满意特别划算 真不错很详细 有耐心。很满意特别划算真不错很详细 有耐心很满意特别划算真不错很详细有耐心很满意特别划算真不错很详细有耐心很满意特别划算真不错很详细 有耐心
-								</p>
-							</li>
-							<li>
-								<div class="head-content clearfix">
-									<div class="user-score">
-										<span class="active"></span>
-										<span class="active"></span>
-										<span class="active"></span>
-										<span></span>
-										<span></span>
-									</div>
-									<p class="user-name">
-										刘 * * 疯
-									</p>
-									<p class="date">
-										2015-01-28
-									</p>
-								</div>
-								<p class="para">
-									很满意特别划算 真不错很详细 有耐心。很满意特别划算真不错很详细 有耐心很满意特别划算真不错很详细有耐心很满意特别划算真不错很详细有耐心很满意特别划算真不错很详细 有耐心
-								</p>
-							</li>
+							</li> -->
+
+
+
+<?php 
+	$sql = 'select * from `c-offline-course-comment` where coursename = \''.$row['coursename'].'\'';
+ ?>
+							
 						</ul>
 
 						<div class="paganation" id="paganation">

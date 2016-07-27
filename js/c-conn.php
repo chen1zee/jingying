@@ -1,7 +1,7 @@
 <?php 
 	header('Content-Type:text/html;charset=utf8');
-	$url = 'localhost:3306';
-	$root = 'root';
+	$url = '172.16.14.14:3306';
+	$root = 'CSH';
 	$pwd = 'root';
 
 	// 连接，返回资源标识符

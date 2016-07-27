@@ -134,6 +134,34 @@ $(function () {
 	// 	 /* body... */ 
 	// });
 
+	
+	;(function(){
+		// ---好，中，差评 比例显示事件
+		var top = parseInt($('#percentBox>.top>.right').html().match(/\d+/)[0]);
+		var mid = parseInt($('#percentBox>.mid>.right').html().match(/\d+/)[0]);
+		var low = parseInt($('#percentBox>.low>.right').html().match(/\d+/)[0]);
+		var sum = top + mid + low;
+		var arr = [];
+		arr.push(Math.floor(top * 10000 / sum) / 100);
+		arr.push(Math.floor(mid * 10000 / sum) / 100);
+		arr.push(Math.floor(low * 10000 / sum) / 100);
+
+		for (var i = 0,len = $('#percentBox .bar>span').size(); i < len; i++) {
+		 	$('#percentBox .bar>span').eq(i).css('width',(arr[i] + '%'));
+		 } 
+		// —————评分星星显示
+		var starNum = Math.ceil($('#scoreBox>.score').html() / 2);
+
+		for (var i = 0,len = starNum; i < len; i++) {
+			$('#starList>span').eq(i).addClass('active');
+		}
+		
+
+	})();
+	
+
+
+
 	//——————————预约咨询事件————————————
 
 
@@ -214,9 +242,6 @@ $(function () {
 
 		 /* body... */ 
 	});
-
-	
-
 
 	 /* body... */ 
 });
