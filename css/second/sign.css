@@ -241,7 +241,7 @@ nav {
 	font-size: 14px;
 }
 
-.code-right {
+.code-right,.code-login-right {
 	float: right;
 	width: 90px;
 	height: 38px;
@@ -253,7 +253,7 @@ nav {
 	color: #29b572;
 }
 
-.code-right img {
+.code-login-right img {
 	width: 90px;
 	height: 38px;
 	display: inline-block;
