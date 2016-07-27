@@ -336,11 +336,11 @@
 	background-color: black;
 }
 
-.online-lesson li:nth-of-type(4) {
+.online-lesson .li-four {
 	margin-right: 13px;
 }
 
-.online-lesson li:nth-of-type(5) {
+.online-lesson .li-five {
 	margin-right: 0;
 }
 
@@ -504,13 +504,13 @@
 	width: 200px;
 	height: 326px;
 	background: url(../../img/h-student-bg.png);
-	margin-right: 46.5px;
+	/*margin-right: 46.5px;*/
 	border-bottom: 2px solid #8dd3b2;
 	text-align: center;
 }
 
-.user-student li:last-child{
-	margin-right: 0;
+.user-student li+li {
+	margin-left: 46.5px;
 }
 
 .user-student li img {
@@ -655,11 +655,6 @@
 	margin-left: 15px;
 	margin-bottom: 10px;
 }
-
-
-
-
-
 
 .goTop-btn {
 	width: 60px;

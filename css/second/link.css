@@ -24,12 +24,9 @@
 	background-color: #fff;
 }
 
-.partner-firm ul{
-	margin-bottom: 30px;
-}
 
-.partner-firm ul:last-child {
-	margin-bottom: 0;
+.partner-firm ul+ul {
+	margin-top:30px; 
 }
 
 .partner-firm li {
@@ -37,9 +34,12 @@
 	margin-right: 15px;
 }
 
-.partner-firm li:last-child {
-	margin-right: 0;
+.partner-firm .li-last { 
+	margin-right: 0px;
 }
+/*.partner-firm li:last-child {
+	margin-right: 0;
+}*/
 
 /*友情衔接*/
 .friendship-link {
@@ -52,23 +52,18 @@
 	background-color: #fff;
 }
 
-.link-url ul {
-	margin-bottom: 20px;
-}
-
-.link-url ul:last-child {
-	margin-bottom: 0;
+.friendship-link ul+ul {
+	margin-top: 20px;
 }
 
 .link-url li {
 	float: left;
-	margin-right: 28px;
 	font-size: 14px;
 	color: #333;
 }
 
-.link-url li:last-child {
-	margin-right: 0;
+.link-url li+li {
+	margin-left: 28px;
 }
 
 .link-url li a {
