@@ -353,7 +353,7 @@
 						<a href="###" class="firm">
 							<img src="../../img/h-cooperation10.png">
 						</a>
-						<!-- <a href="###" class="firm">
+						<a href="###" class="firm">
 							<img src="../../img/h-cooperation1.png">
 						</a>
 						<a href="###" class="firm">
@@ -382,7 +382,7 @@
 						</a>
 						<a href="###" class="firm">
 							<img src="../../img/h-cooperation10.png">
-						</a> -->
+						</a>
 					</div>
 
 					<a class="left-arrow" href="javascript:void(0);">&lt;</a>
@@ -599,13 +599,11 @@
 			//下一张
 			$(".right-arrow").on("click",function() {
 				suffix++;
-				if(suffix > 7) {
+				if(suffix > 13) {
 					suffix = 0;
 				}
 				$(".cooperation-firm").animate({
 					left:-suffix * perWidth,
-					
-					
 
 				},500)
 			})
@@ -614,7 +612,7 @@
 			$(".left-arrow").on("click",function() {
 				suffix--;
 				if(suffix < 0) {
-					suffix = 3;
+					suffix = 13;
 				}
 				$(".cooperation-firm").animate({
 					left:-suffix * perWidth,
