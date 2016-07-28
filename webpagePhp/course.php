@@ -1,7 +1,12 @@
 <?php 
-	include_once('../../js/h-conn.php');
-
-
+	include_once('../js/h-conn.php');
+	$id = 1;
+	$sql ="select * from `h-course` where `id`=".$id;
+	$result = mysql_query($sql);
+	if (mysql_affected_rows() > 0 ) {
+		$row = mysql_fetch_assoc($result);
+		# code...
+	}
 
  ?>
 
@@ -75,16 +80,19 @@
 			<img src="../img/h-lesson-list.png" class="img-top">
 			<!-- 描述 -->
 			<div class="describe">
-				<p class="p-title">unity3D基础课程A段项目</p>
+				<p class="p-title">
+				<!-- unity3D基础课程A段项目 -->
+				<?php echo $row['coursename']; ?>
+				</p>
 				
 				<div class="describe-details clearfix">
 					<div class="total-time">
 						<h3>总课时</h3>
-						<p>365天</p>
+						<p><?php echo $row['coursetime']; ?>天</p>
 					</div>
 					<div class="normal-time">
 						<h3>标准学习时间</h3>
-						<p>90天</p>
+						<p><?php echo $row['studytime']; ?>天</p>
 					</div>
 				</div>
 			</div>

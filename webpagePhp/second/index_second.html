@@ -628,6 +628,11 @@
 				},500,'swing')
 			})
 
+			$(".goTop").css("left",$(window).width()/2+$(".minWidth").width()/2 +20 );
+			// 改变屏幕大小时触发：
+			$(window).resize(function(){
+				$(".goTop").css("left",$(window).width()/2+$(".minWidth").width()/2 +20);
+			})
 		})
 		
 	</script>	
