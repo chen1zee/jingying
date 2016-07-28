@@ -18,14 +18,14 @@
 
 
 
-	// $id = $_GET['id'];------后面该回来
-	$id = 1;
+	$id = $_GET['id'] ? $_GET['id'] : 1;//----默认为1
 	$sql = 'select * from `c-offline-course` where `id`='.$id;
 	$result = mysql_query($sql);
 	if (mysql_affected_rows() == 1) {
 		$row = mysql_fetch_assoc($result);
 		# code...
 	}
+echo "<p id='theCourseId' style='display:none;'>".$id."</p>";
  ?>
 
 
@@ -268,7 +268,93 @@
 			<!-- 2， 其他课程 页 -->
 			<div class="other-course page">
 				<ul>
-					<li>
+				
+<?php 
+
+
+	preg_match_all("/[a-zA-Z]\w+/", $row['type'], $type_key);
+
+	$sql = 'select *,(case when `type` like \'%'.$type_key[0][0].'%\' then 1 else 0 end) as `like_it` from `c-offline-course` where `id` != '.$row['id'].' order by `like_it` desc limit 0,7';
+	
+	$result_other_course = mysql_query($sql);
+	$strLi = '';
+	if (mysql_affected_rows() > 0) {
+		
+		while ($row_other = mysql_fetch_assoc($result_other_course)) {
+			$strLi .= '<li>'.
+						'<a href="./course_detail.php?id='.$row_other['id'].'" class="clearfix">'.
+							'<div class="word-box">'.
+								'<p class="title">'.
+									$row_other['coursename'].
+								'</p>'.
+								'<div class="para-box clearfix">'.
+									'<p class="name">'.
+										'<span class="icon"></span>'.
+										'<span>'.$row_other['schoolname'].'</span>'.
+									'</p>'.
+									'<p class="day">'.
+										'<span class="icon"></span>'.
+										'<span>'.$row_other['course_time'].'天</span>'.
+									'</p>'.
+									'<p class="sell">'.
+										'<span>已售</span>'.
+										'<span class="green">'.$row_other['sell_num'].'</span>'.
+									'</p>'.
+									'<p class="score">'.
+										'<span>评分</span>'.
+										'<span class="geen">'.$row_other['score'].'</span>'.
+										'<span>分</span>'.
+
+									'</p>'.
+								'</div>'.
+							'</div>'.
+							'<div class="price-box">'.
+								'<p class="now-price">&yen;'.$row_other['now_price'].'</p>'.
+								'<p class="old-price">'.
+									'<span>价值：</span>'.
+									'<del>'.$row_other['old_price'].'</del>'.
+								'</p>'.
+							'</div>'.
+						'</a>'.
+					'</li>';
+
+			# code...
+		}
+		echo $strLi;
+		# code...
+	}
+
+
+// 	$sql = "create procedure myproce4(out itemNumber int)
+// 		begin
+// 			itemNumber = SELECT count(1) FROM `c-offline-course` where `type` like '%CCC%';
+// 		end; 
+// 		";
+// 		mysql_query($sql);//创建一个myproce4的存储过程
+// 		$sql = "select ";
+// 		mysql_query($sql);//设置性别参数为1
+// 		$sql = "call test.myproce4(@sexflag);";
+// 		mysql_query($sql);//调用myproce4的存储过程
+
+// $sql = "create procedure myproce2(out itemNumber int)
+// 	begin
+// 	score = SELECT count(1) FROM `c-offline-course` where `type` like '%CCC%';
+// 	if score < 7 then
+// 	 itemNumber = 7 - score;
+// 	end if;
+// 	end; 
+// 	";
+// 	mysql_query($sql);//创建一个myproce2的存储过程
+// 	$sql = "call test.myproce2(70);";
+// 	mysql_query($sql);//调用myproce2的存储过程,看不到效果。
+
+
+
+ ?>
+
+
+
+					<!-- <li>
 						<a href="###" class="clearfix">
 							<div class="word-box">
 								<p class="title">
@@ -303,223 +389,8 @@
 								</p>
 							</div>
 						</a>
-					</li>
-					<li>
-						<a href="###" class="clearfix">
-							<div class="word-box">
-								<p class="title">
-									一年会员-购买专用连接（仅用于购买用）-中艺摄影网校
-								</p>
-								<div class="para-box clearfix">
-									<p class="name">
-										<span class="icon"></span>
-										<span>蓝鸥科技教育有限公司</span>
-									</p>
-									<p class="day">
-										<span class="icon"></span>
-										<span>120天</span>
-									</p>
-									<p class="sell">
-										<span>已售</span>
-										<span class="green">1200</span>
-									</p>
-									<p class="score">
-										<span>评分</span>
-										<span class="geen">8.9</span>
-										<span>分</span>
-
-									</p>
-								</div>
-							</div>
-							<div class="price-box">
-								<p class="now-price">&yen;1288</p>
-								<p class="old-price">
-									<span>价值：</span>
-									<del>5000</del>
-								</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="###" class="clearfix">
-							<div class="word-box">
-								<p class="title">
-									一年会员-购买专用连接（仅用于购买用）-中艺摄影网校
-								</p>
-								<div class="para-box clearfix">
-									<p class="name">
-										<span class="icon"></span>
-										<span>蓝鸥科技教育有限公司</span>
-									</p>
-									<p class="day">
-										<span class="icon"></span>
-										<span>120天</span>
-									</p>
-									<p class="sell">
-										<span>已售</span>
-										<span class="green">1200</span>
-									</p>
-									<p class="score">
-										<span>评分</span>
-										<span class="geen">8.9</span>
-										<span>分</span>
-
-									</p>
-								</div>
-							</div>
-							<div class="price-box">
-								<p class="now-price">&yen;1288</p>
-								<p class="old-price">
-									<span>价值：</span>
-									<del>5000</del>
-								</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="###" class="clearfix">
-							<div class="word-box">
-								<p class="title">
-									一年会员-购买专用连接（仅用于购买用）-中艺摄影网校
-								</p>
-								<div class="para-box clearfix">
-									<p class="name">
-										<span class="icon"></span>
-										<span>蓝鸥科技教育有限公司</span>
-									</p>
-									<p class="day">
-										<span class="icon"></span>
-										<span>120天</span>
-									</p>
-									<p class="sell">
-										<span>已售</span>
-										<span class="green">1200</span>
-									</p>
-									<p class="score">
-										<span>评分</span>
-										<span class="geen">8.9</span>
-										<span>分</span>
-
-									</p>
-								</div>
-							</div>
-							<div class="price-box">
-								<p class="now-price">&yen;1288</p>
-								<p class="old-price">
-									<span>价值：</span>
-									<del>5000</del>
-								</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="###" class="clearfix">
-							<div class="word-box">
-								<p class="title">
-									一年会员-购买专用连接（仅用于购买用）-中艺摄影网校
-								</p>
-								<div class="para-box clearfix">
-									<p class="name">
-										<span class="icon"></span>
-										<span>蓝鸥科技教育有限公司</span>
-									</p>
-									<p class="day">
-										<span class="icon"></span>
-										<span>120天</span>
-									</p>
-									<p class="sell">
-										<span>已售</span>
-										<span class="green">1200</span>
-									</p>
-									<p class="score">
-										<span>评分</span>
-										<span class="geen">8.9</span>
-										<span>分</span>
-
-									</p>
-								</div>
-							</div>
-							<div class="price-box">
-								<p class="now-price">&yen;1288</p>
-								<p class="old-price">
-									<span>价值：</span>
-									<del>5000</del>
-								</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="###" class="clearfix">
-							<div class="word-box">
-								<p class="title">
-									一年会员-购买专用连接（仅用于购买用）-中艺摄影网校
-								</p>
-								<div class="para-box clearfix">
-									<p class="name">
-										<span class="icon"></span>
-										<span>蓝鸥科技教育有限公司</span>
-									</p>
-									<p class="day">
-										<span class="icon"></span>
-										<span>120天</span>
-									</p>
-									<p class="sell">
-										<span>已售</span>
-										<span class="green">1200</span>
-									</p>
-									<p class="score">
-										<span>评分</span>
-										<span class="geen">8.9</span>
-										<span>分</span>
-
-									</p>
-								</div>
-							</div>
-							<div class="price-box">
-								<p class="now-price">&yen;1288</p>
-								<p class="old-price">
-									<span>价值：</span>
-									<del>5000</del>
-								</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="###" class="clearfix">
-							<div class="word-box">
-								<p class="title">
-									一年会员-购买专用连接（仅用于购买用）-中艺摄影网校
-								</p>
-								<div class="para-box clearfix">
-									<p class="name">
-										<span class="icon"></span>
-										<span>蓝鸥科技教育有限公司</span>
-									</p>
-									<p class="day">
-										<span class="icon"></span>
-										<span>120天</span>
-									</p>
-									<p class="sell">
-										<span>已售</span>
-										<span class="green">1200</span>
-									</p>
-									<p class="score">
-										<span>评分</span>
-										<span class="geen">8.9</span>
-										<span>分</span>
-
-									</p>
-								</div>
-							</div>
-							<div class="price-box">
-								<p class="now-price">&yen;1288</p>
-								<p class="old-price">
-									<span>价值：</span>
-									<del>5000</del>
-								</p>
-							</div>
-						</a>
-					</li>
+					</li> -->
+					
 				</ul>
 			</div>
 
@@ -590,7 +461,18 @@
 						大家印象：
 					</span>
 					<p class="tag clearfix">
-					
+<?php 
+	$tapArr = explode('N', $row['tap_list']);
+	$tapStr = '';
+	for ($i=0,$len = count($tapArr); $i < $len; $i++) { 
+		$tapStr .= '<span>'.$tapArr[$i].'('.$row[$tapArr[$i]].')</span>';
+		# code...
+	}
+	echo $tapStr;
+
+
+	
+ ?>
 
 						<!-- <span>交通便利(323)</span>
 						<span>学习气氛浓厚(1200)</span> -->
@@ -607,8 +489,8 @@
 				<div class="comment-content">
 					<p class="title">评价内容(<span id="commentNum">						
 <?php 
-	$sql = 'select * from `c-offline-course-comment` where `coursename` = \''.$row['coursename'].'\'';
-	$result = mysql_query($sql);
+	$sql = 'select * from `c-offline-course-comment` where `course_id` = '.$id;
+	$result = mysql_query($sql);	
 	echo mysql_num_rows($result);//-----获取评论的总条数
 
  ?>
@@ -617,7 +499,7 @@
 					</span>)</p>
 
 					<div class="para-content">
-						<ul class="comment-detail">
+						<ul class="comment-detail" id="commentDetail">
 							<!-- <li>
 								<div class="head-content clearfix">
 									<div class="user-score">

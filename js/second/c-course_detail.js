@@ -128,8 +128,7 @@ $(function () {
 
 	// -----点击页数 刷新 页数列表
 	$('#paganation li').on('click',function () {
-		listIndex = parseInt($(this).html());	
-
+		listIndex = parseInt($(this).html());
 		creLi();
 		changeLi();
 		 /* body... */ 
@@ -138,6 +137,7 @@ $(function () {
 	$('#next').on('click',function () {
 		if (listIndex < totalListNum) {
 			listIndex++;
+			creLi();
 			changeLi();
 		}
 		 /* body... */ 
@@ -145,17 +145,62 @@ $(function () {
 	$('#prev').on('click',function () {
 		if (listIndex > 1) {
 			listIndex--;
+			creLi();
 			changeLi();
 		}
 		 /* body... */ 
 	});
-	function creLi() {		
+
+
+
+
+	function creLi() {//-----jsonp获取相应评论信息
 		$.ajax({
 			type:'GET',
-			url:('./course_detail_creLi.php?num=' + listIndex+'&coursename='+$('#coursename').html()),
+			url:('./course_detail_creLi.php?num=' + listIndex +'&id='+$('#theCourseId').html()),
 			dataType:'jsonp',
+			jsonpCallback:'callback',
 			success:function (data) {
-				console.log(data);
+				var str = '';
+				for (var i = 0,len = data.list.length; i < len; i++) {
+
+					// 判断评分生成星星样式
+					var li = data.list[i];
+					var starNum = Math.ceil(li.score / 2);
+					var starStr = '';
+					for (var j = 0; j < 5; j++) {
+						if (j < starNum) {
+							starStr += '<span class="active"></span>';
+						}else{
+							starStr += '<span></span>';
+						}
+					}
+
+					// 判断如何显示用户名
+					if (li.username == 2) {
+						var nameStr = li.username.substring(0,1) + '*';
+					}else{
+						var nameStr = li.username.substring(0,1)+ '* *' + li.username.substring((li.username.length - 1),li.username.length);
+					}
+					str += '<li>'+
+								'<div class="head-content clearfix">'+
+									'<div class="user-score">'+
+										starStr+
+									'</div>'+
+									'<p class="user-name">'+
+										nameStr+
+									'</p>'+
+									'<p class="date">'+
+										li.date+
+									'</p>'+
+								'</div>'+
+								'<p class="para">'+
+									li.content+
+								'</p>'+
+							'</li>'
+				}
+				$('#commentDetail').html(str);
+
 				 /* body... */ 
 			},
 			
@@ -163,7 +208,7 @@ $(function () {
 		});
 		 /* body... */ 
 	}
-
+	creLi();//----开头进行一次
 
 
 
@@ -194,7 +239,6 @@ $(function () {
 		for (var i = 0,len = starNum; i < len; i++) {
 			$('#starList>span').eq(i).addClass('active');
 		}
-
 
 
 	})();

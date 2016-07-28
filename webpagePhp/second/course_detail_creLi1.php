@@ -9,7 +9,7 @@
 
 	$id = $_GET['id'];
 	$line_num = ($_GET['num'] - 1) * 3;//---从第几条开始去数据，，取三条
-	$sql = 'select * from `c-offline-course-comment` where `course_id` = '.$id.' order by `c-offline-course-comment`.`date` desc limit '.$line_num.',3';
+	$sql = 'select * from `c-offline-course-comment` where `coursename` = \''.$coursename.'\' order by `c-offline-course-comment`.`date` desc limit '.$line_num.',3';
 	$strLi = '';
 	$result = mysql_query($sql);
 	$str = "";

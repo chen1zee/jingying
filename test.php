@@ -1,34 +1,11 @@
 <?php 
-	header('Content-Type:text/html;charset=utf8');
-	echo 'adasdasd'.'<br />';
-	// $url = '127.0.0.1:3306';
-	$url = '172.16.14.14:3306';
-	$root = 'guest';
-	$pwd = 'root';
 
-	// 连接，返回资源标识符
-	$conn = @mysql_connect($url,$root,$pwd) or die("连接失败");
+	include_once('./js/c-conn.php');
 
+	// $sql = 'UPDATE `gzh160301`.`c-offline-course-comment` SET `course_id` = 1 WHERE `c-offline-course-comment`.`id` != 2;';
 
-
-
-	// 2，选择数据库
-	mysql_select_db('gzh160301');
-	mysql_query('set names utf8');
-
-
-	$sql = 'select * from student';
-
-	$result = mysql_query($sql);
+	// mysql_query($sql);
 	
-	
-	while($row = mysql_fetch_array($result)){
-		echo '名字：'.$row['name'].'<br />';
-		echo '性别：'.$row['gender'].'<br />';
-	}
-
-
-
 
 
 
