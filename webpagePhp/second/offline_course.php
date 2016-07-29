@@ -1,3 +1,15 @@
+<?php 
+	include_once('../../js/c-conn.php');
+	$type = $_GET['type'];
+	$sql = 'SELECT * FROM `c-offline-course`';
+
+	mysql_query($sql);
+	$course_num = mysql_affected_rows();
+ ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,35 +104,43 @@
 			</div>
 		</div>
 
-
+<?php 
+	'insert'
+ ?>
 		<!-- 搜索结果 -->
 		<div class="result-bg">
 			<div class="rank-style clearfix">
-				<div class="list">
-					<a href="###" class="active">
+				<div class="list" id="tabList">
+					<a href="###" class="active" id="default">
 						<span>默认</span>
 					</a>
-					<a href="###" class="active">
+					<a href="###" id="sellSort">
 						<span>销量</span>
 						<i class="iconfont">&#xe6b6;</i>
 					</a>
-					<a href="###">
+					<a href="###" id="priceSort">
 						<span>价格</span>
-						<i class="iconfont">&#xe6b5;</i>
+						<i class="iconfont">&#xe6b6;</i>
 					</a>
-					<a href="###">
+					<a href="###" id="goodSort">
 						<span>好评</span>
-						<i class="iconfont">&#xe6b4;</i>
+						<i class="iconfont">&#xe6b6;</i>
 					</a>
-					<div class="green-bar"></div>
+					<div class="green-bar" id="greenBar"></div>
 				</div>
 				<p class="totolNum">
-					共 3845 条
+					共 
+					<span id="totolNum">
+						<?php 
+							echo $course_num;
+						 ?>
+					</span>
+					 条
 				</p>
 			</div>
 
-			<ul class="result-list">
-				<li class="clearfix">
+			<ul class="result-list" id="resultList">
+				<!-- <li class="clearfix">
 					<a href="###" class="item-box">
 						<div class="top-wrap">
 							<img src="../../img/c-course1.png" alt="">
@@ -226,227 +246,14 @@
 							</span>
 						</p>
 					</a>
-				</li>
-				<li class="clearfix">
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-				</li>
-				<li class="clearfix">
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-					<a href="###" class="item-box">
-						<div class="top-wrap">
-							<img src="../../img/c-course1.png" alt="">
-							<span>&nbsp;7.6分&nbsp;</span>
-						</div>
-						<p class="title">
-							英语零基础直达四级水平新概念
-						</p>
-						<p class="address">
-							【南京市】新街口中山南路8号苏豪大厦
-						</p>
-						<p class="about-sell clearfix">
-							<span class="now-price">
-								&yen;1000&nbsp;
-							</span>
-							<del>&yen;100</del>
-							<span class="number">
-								已售129033
-							</span>
-						</p>
-					</a>
-				</li>
+				</li> -->
+
 			</ul>
 
 			<div class="paganation" id="paganation">
 				<a href="###" id="prev">上一页</a>
 				<ul class="clearfix">
-					<li class="active">1</li>
+					<!-- <li class="active">1</li>
 					<li>2</li>
 					<li>3</li>
 					<li>4</li>
@@ -456,7 +263,7 @@
 					<li>8</li>
 					<li>9</li>
 					<li class="none">...</li>
-					<li>100</li>
+					<li>100</li> -->
 				</ul>
 				<a href="###" id="next">下一页</a>
 
@@ -611,8 +418,8 @@
 	<!-- 页脚   结束 -->
 
 
-
-
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/second/c-offline_course.js"></script>
 
 
 

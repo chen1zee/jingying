@@ -28,6 +28,10 @@ $(function () {
 		 /* body... */ 
 	});
 
+
+
+	
+
 	// ---用户评价  页 tab切换
 	var listLength = 10;//---列表长度 不包括省略号
 	var listIndex = 1;//---当前为第几页

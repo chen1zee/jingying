@@ -554,63 +554,46 @@ echo "<p id='theCourseId' style='display:none;'>".$id."</p>";
 
 		<!-- 下右部 侧边栏 -->
 		<div class="side-box">
-			<div class="hot-sell-box">
+			<div class="hot-sell-box" id="hotSellBox">
 				<p class="hot-sell clearfix">
 					<span class="hot-icon"></span>
 					<span>热销课程</span>
-					<a href="###">更多</a>
+					<a href="./offline_course.php">更多</a>
 				</p>
 				<ul>
-					<li class="clearfix">
+
+
+
+
+<?php 
+	$sql = 'SELECT *,(case when `type` like \''.$type_key[0][0].'\' then 1 else 0 end) as `like_it` FROM `c-offline-course` ORDER BY `like_it` DESC, `sell_num` DESC LIMIT 0,5';
+	$result_hot = mysql_query($sql);
+	$strLi = '';//---装载结果字符串
+	if (mysql_affected_rows() > 0) {
+		while ($row_hot = mysql_fetch_assoc($result_hot)) {
+			$strLi .= '<li class="clearfix">'.
+						'<a href="./course_detail.php?'.$row_hot['id'].'">'.
+							'<img src="../../img/c-course6.png" alt="">'.
+							'<p class="title">'.$row_hot['type'].'</p>'.
+							'<p class="para">'.$row_hot['address'].'</p>'.
+							'<p class="price">&yen;'.$row_hot['now_price'].'</p>'.
+						'</a>'.
+					'</li>';
+			# code...
+		}
+		echo $strLi;
+		# code...
+	}
+ ?>
+				<!-- 	<li class="clearfix">
 						<a href="###">
 							<img src="../../img/c-course6.png" alt="">
-							<!-- 一行省略 -->
 							<p class="title">4个月IOS高薪就业班asdasdsdsadsad</p>
 							<p class="para">北京市海淀区清河中街金asdsadsadasdasdasdsad</p>
 							<p class="price">&yen;1288</p>
 
 						</a>
-					</li>
-					<li class="clearfix">
-						<a href="###">
-							<img src="../../img/c-course6.png" alt="">
-							<!-- 一行省略 -->
-							<p class="title">4个月IOS高薪就业班asdasdsdsadsad</p>
-							<p class="para">北京市海淀区清河中街金asdsadsadasdasdasdsad</p>
-							<p class="price">&yen;1288</p>
-
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="###">
-							<img src="../../img/c-course6.png" alt="">
-							<!-- 一行省略 -->
-							<p class="title">4个月IOS高薪就业班asdasdsdsadsad</p>
-							<p class="para">北京市海淀区清河中街金asdsadsadasdasdasdsad</p>
-							<p class="price">&yen;1288</p>
-
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="###">
-							<img src="../../img/c-course6.png" alt="">
-							<!-- 一行省略 -->
-							<p class="title">4个月IOS高薪就业班asdasdsdsadsad</p>
-							<p class="para">北京市海淀区清河中街金asdsadsadasdasdasdsad</p>
-							<p class="price">&yen;1288</p>
-
-						</a>
-					</li>
-					<li class="clearfix">
-						<a href="###">
-							<img src="../../img/c-course6.png" alt="">
-							<!-- 一行省略 -->
-							<p class="title">4个月IOS高薪就业班asdasdsdsadsad</p>
-							<p class="para">北京市海淀区清河中街金asdsadsadasdasdasdsad</p>
-							<p class="price">&yen;1288</p>
-
-						</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 			<div class="question-box">
