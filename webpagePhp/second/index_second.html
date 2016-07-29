@@ -559,9 +559,9 @@
 			})
 
 			function fade() {
-				$(".block-left li").eq(index).fadeIn(500).siblings().fadeOut(500);
+				$(".block-left li").eq(index).fadeTo(1500,1).fadeIn(500).siblings().fadeOut(500);
 				$("#paganation span").eq(index).addClass("active").siblings().removeClass("active");
-				$(".block-left li").eq(index).addClass("icon").siblings().removeClass("icon");
+				// $(".block-left li").eq(index).addClass("icon").siblings().removeClass("icon");
 			}
 			function prev() {
 				index--;
@@ -581,7 +581,7 @@
 
 			var timer = setInterval(next,3000);
 
-			$(".block-left li").hover(function() {
+			$(".block-left li,span").hover(function() {
 				clearInterval(timer);
 			},function() {
 				timer = setInterval(next,3000);

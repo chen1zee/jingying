@@ -40,10 +40,10 @@
 	opacity: 0.5;
 }
 
-.block-left li.icon {
+/*.block-left li.icon {
 	opacity: 1;
 	transition: opacity 2s;
-}
+}*/
 
 .block-left a {
 	text-decoration: none;
