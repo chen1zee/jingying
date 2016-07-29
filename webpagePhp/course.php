@@ -12,9 +12,6 @@
 
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,13 +123,29 @@
 						<!-- 标题 -->
 						<div class="list-title">
 							<span>第1课</span>
-							Android 项目开发实战：语音播报计算器
+						
+								
+ 								<?php 
+ 								include_once('h-lesson.php');
+ 								echo $row['lessonname'];
+
+ 								 ?>
 						</div>
 						<!-- 内容 -->
 						<div class="list-content clearfix">
 							<em></em>
-							<p>Android 项目开发实战：语音播报计算器Android项目开发实战：语音播报计算器Android项目开发实战：语音播报计算器Android 项目开发实战：语音播报计算器 </p>
-							<span>(5分钟)</span>
+							<p><!-- Android 项目开发实战：语音播报计算器Android项目开发实战：语音播报计算器Android项目开发实战：语音播报计算器Android 项目开发实战：语音播报计算器 --> 
+								<?php 
+ 								include_once('h-lesson.php');
+ 								echo $row['breif'];
+
+ 								 ?>
+							</p>
+							<span>(<?php 
+ 								include_once('h-lesson.php');
+ 								echo $row['lessontime'];
+
+ 								 ?>分钟)</span>
 							<a href="javascript:void(0);">开始学习</a>	
 						</div>
 					</li>
@@ -141,7 +154,12 @@
 						<!-- 标题 -->
 						<div class="list-title">
 							<span>第2课</span>
-							Android 项目开发实战：语音播报计算器
+							<!-- Android 项目开发实战：语音播报计算器 -->
+							<?php 
+ 								include_once('h-lesson.php');
+ 								echo $row['lessonname'];
+
+ 								 ?>
 						</div>
 						<!-- 内容 -->
 						<div class="list-content clearfix">

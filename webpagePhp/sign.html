@@ -80,7 +80,7 @@
 							<input type="text" name="code" placeholder="验证码" class="loginCode">
 						</div>
 						<div class="code-login-right">
-							<img src="###" title="点击更换图片">
+							<img src="h-code.php" title="点击更换图片" id="code">
 						</div>
 					</div>
 					<!-- 提示错误 -->
@@ -189,8 +189,8 @@
 		$(function() {
 			$(".login-title a").click(function(){
 				$(this).addClass('active').siblings().removeClass('active');
-				$('.logincont').css('display','none').eq($(this).index()).css('display','block');
-				$('.registercont').css('display','block').eq($(this).index()).css('display','none');				
+				$('.logincont').hide().eq($(this).index()).show();
+				$('.registercont').show().eq($(this).index()).hide();				
 			})
 
 		// 获取验证码倒计时
@@ -231,16 +231,16 @@
         var tel = $(".loginPhone").val();
         var reg = /^1\d{10}$/;
         if (reg.test(tel)) {
-            $(".error1").css('display','none');;
+            $(".error1").hide();;
         }
         else{
             $(".error1 span").text("您输入的手机号码格式不正确");
-            $(".error1 ").css('display','block');
+            $(".error1 ").show();
          }
 
          if(tel.length == 0) {
      		$(".error1 span").text("手机号码不能为空");
-     		$(".error1 ").css('display','block');
+     		$(".error1 ").show();
      	}
     });
 
@@ -249,83 +249,118 @@
         var tel = $(".registPhone").val();
         var reg = /^1\d{10}$/;
         if (reg.test(tel)) {
-            $(".error4").css('display','none');
+            $(".error4").hide();
         }
         else{
             $(".error4 span").text("您输入的手机号码格式不正确");
-            $(".error4 ").css('display','block');
+            $(".error4 ").show();
          }
 
          if(tel.length == 0) {
      		$(".error4 span").text("手机号码不能为空");
-     		$(".error4 ").css('display','block');
+     		$(".error4 ").show();
      	}
 
     });
 
     //登录密码验证
-    $(".loginPassword").blur('click',function(){//这里和数据库的验证暂时没写
+    $(".loginPassword").on('blur',function(){//这里和数据库的验证暂时没写
      	var tel = $(".loginPassword").val();
      	if(tel.length == 0) {
      		$(".error2 span").text("密码不能为空");
-     		$(".error2 ").css('display','block');
+     		$(".error2 ").show();
      	}else {
-     		$(".error2 ").css('display','none');
+     		$(".error2 ").hide();
      	}
      })
 
     //登录验证码
-     $(".loginCode").blur('click',function(){//这里和数据库的验证暂时没写
-     	var tel = $(".loginCode").val();
-     	if(tel.length == 0) {
-     		$(".error3 span").text("验证码不能为空");
-     		$(".error3 ").css('display','block');
-     	}else {
-     		$(".error3 ").css('display','none');
-     	}
-     })
+     // $(".loginCode").blur('click',function(){//这里和数据库的验证暂时没写
+     // 	var tel = $(".loginCode").val();
+     // 	if(tel.length == 0) {
+     // 		$(".error3 span").text("验证码不能为空");
+     // 		$(".error3 ").show();
+     // 	}else {
+     // 		$(".error3 ").hide();
+     // 	}
+     // })
 
      // 注册验证码
-     $(".registCode").blur('click',function(){//这里和数据库的验证暂时没写
+     $(".registCode").on('blur',function(){//这里和数据库的验证暂时没写
      	var tel = $(".registCode").val();
      	if(tel.length == 0) {
-     		$(".error5 span").text("验证码不能为空");
-     		$(".error5").css('display','block');
+     		$(".error5 span").text("验证码不为空");
+     		$(".error5").show();
      	}else {
-     		$(".error5").css('display','none');
+     		$(".error5").hide();
      	}
      })
 
      //注册的密码
-      $(".registPassword").blur('click',function(){//这里和数据库的验证暂时没写
+      $(".registPassword").on('blur',function(){//这里和数据库的验证暂时没写
      	var tel = $(".registPassword").val();
      	if(tel.length == 0) {
      		$(".error6 span").text("密码不能为空");
-     		$(".error6 ").css('display','block');
+     		$(".error6 ").show();
      	}else {
-     		$(".error6").css('display','none');
+     		$(".error6").hide();
      	}
      })
 
-      $(".registAgainPassword").blur('click',function(){//这里和数据库的验证暂时没写
+      $(".registAgainPassword").on('blur',function(){//这里和数据库的验证暂时没写
      	var tel = $(".registAgainPassword").val();
      	var tel1 = $(".registPassword").val();
      	if(tel.length == 0) {
      		$(".error7 span").text("密码不能为空");
-     		$(".error7 ").css('display','block');
+     		$(".error7 ").show();
      	}else {
-     		$(".error7").css('display','none');
+     		$(".error7").hide();
      	}
 
      	if(tel!==tel1) {
      		$(".error7 span").text("密码不一致");
-     		$(".error7 ").css('display','block');
+     		$(".error7 ").show();
      	}else {
-     		$(".error7").css('display','none');
+     		$(".error7").hide();
      	}
      })
 
+      // 点击验证码切换图片
+      $("#code").click(function(){ //点击后随机生成验证码
+		$(this).attr("src",'h-code.php?');
+	})
+
+      // 后台验证
+
+		$(".loginCode").on('blur',function(){
+    
+     	if(!$(".loginCode").val().trim()) {
+     		$(".error3 span").text("验证码不能为空");
+     		$(".error3 ").show();
+     	}else {
+     		$.ajax({
+     			type:"GET",
+     			url:"chk_code.php",
+     			data:{
+     				code:$('.loginCode').val().trim()
+     			},
+     			dataType:'json',
+     			success:function(data) {
+     				console.log(data);
+     				if(data.msg==1) {
+     					$(".error3 ").hide();
+     				} else {
+     					$(".error3 span").text("请输入正确的验证码");
+     					$(".error3 ").show();
+     				}
+     			}
+     		})
+     	}
+     })
+
+
 })
 	</script>
+	
 </body>
 </html>
