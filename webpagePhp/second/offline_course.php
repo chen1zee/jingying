@@ -1,6 +1,5 @@
 <?php 
 	include_once('../../js/c-conn.php');
-	$type = $_GET['type'];
 	$sql = 'SELECT * FROM `c-offline-course`';
 
 	mysql_query($sql);

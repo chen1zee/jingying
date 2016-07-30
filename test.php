@@ -2,9 +2,18 @@
 
 	include_once('./js/c-conn.php');
 
-	// $sql = 'UPDATE `gzh160301`.`c-offline-course-comment` SET `course_id` = 1 WHERE `c-offline-course-comment`.`id` != 2;';
 
-	// mysql_query($sql);
+
+	// for ($i=0; $i < 120; $i++) { 
+	// 	$sql = "UPDATE `gzh160301`.`c-school` SET `intro_title` = '".$i."蓝鸥科技教育有限公司简介' WHERE `c-school`.`id` = ".$i.";";
+
+	// 	mysql_query($sql);
+
+	// 	# code...
+	// }
+
+
+	
 	
 
 

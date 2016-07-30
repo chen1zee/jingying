@@ -285,6 +285,7 @@
 /*—————————Tab 切换   3，学校相册————————————*/
 .school-album{
 	display: none;
+	min-height: 450px;
 }
 .school-album>img{
 	float: left;

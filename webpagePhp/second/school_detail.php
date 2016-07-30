@@ -1,3 +1,26 @@
+<?php 
+	include_once('../../js/c-conn.php');
+
+
+	$id = $_GET['id'] ? $_GET['id'] : 1;
+
+
+	$sql = 'select * from `c-school` where `id` = '.$id;
+
+	$result = mysql_query($sql);
+
+	if (mysql_affected_rows() > 0) {
+		$row = mysql_fetch_assoc($result);
+	}
+
+
+ ?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,29 +93,46 @@
 				<img src="../../img/c-course1.png" alt="">
 				<div class="para-wrap">
 					<p class="title">
-						北京蓝鸥科技教育培训学校有限公司
+						<?php echo $row['intro_title'] ?>
 					</p>
-						
-
-
 
 					<div class="some-wrap">
 						<div class="star-list">
-							<span class="active"></span>
+
+<?php 
+
+	// ---生成评分星星
+	$star_num = ceil($row['score'] / 2);
+	$str = '';
+	for ($i=0; $i < 5; $i++) { 
+		if ($i < $star_num) {
+			$str .= '<span class="active"></span>';
+			# code...
+		}else{
+			$str .= '<span></span>';
+		}
+		# code...
+	}
+	echo $str;
+ ?>
+							<!-- <span class="active"></span>
 							<span class="active"></span>
 							<span class="active"></span>
 							<span></span>
-							<span></span>
+							<span></span> -->
 						</div>
 							
 
 						<div class="address-box clearfix">
 							<span class="icon"></span>
-							<span>北京市海淀区清河中街金五星大厦五楼</span>
+							<span>
+								<?php echo $row['address']; ?>
+							</span>
 						</div>
 						<div class="join-number">
 							<span class="green">
-								87
+								<?php echo $row['sign_people']; ?>
+
 							</span>
 							<span>
 								人已报
@@ -110,9 +150,9 @@
 			<!-- 左下部  Tab切换 -->
 			<div class="result-box">
 				<ul class="tab-list clearfix" id="tabList">
-					<li>课程详情</li>
-					<li>其他课程</li>
-					<li>用户评价</li>
+					<li>本校课程</li>
+					<li>学校简介</li>
+					<li>官方相册</li>
 					<span class="green-bar" id="greenBar"></span>
 				</ul>
 				
@@ -122,7 +162,7 @@
 				<div class="tab-box" id="tabBox">
 					<!-- 1， 本校课程 页 -->					
 					<ul class="school-course tab">
-						<li>
+						<!-- <li>
 							<a href="###" class="clearfix">
 								<div class="word-box">
 									<p class="title">
@@ -159,274 +199,69 @@
 									</p>
 								</div>
 							</a>
-						</li>
-						<li>
-							<a href="###" class="clearfix">
+						</li> -->
+
+<?php 
+
+
+// union  将 2个 sql 语句 合在 一起
+
+	$sql = 'select *,(case when 1=1 then \'线上\' end) as `on_off_state` from `c-offline-course` where `school_id` = '.$id;
+
+	$result_course =  mysql_query($sql);
+
+
+	$str = '';
+	if (mysql_affected_rows() > 0) {
+		while ($row_course = mysql_fetch_assoc($result_course)) {
+
+			$str .= '<li>
+							<a href="./course_detail.php?id='.$row_course['id'].'" class="clearfix">
 								<div class="word-box">
 									<p class="title">
-										<span>一年会员-购买专用连接（仅用于购买用）-中艺摄影网校&nbsp;&nbsp;</span>
-										<span class="offline">线下</span>
+										<span>'.$row_course['coursename'].'&nbsp;&nbsp;</span>
+										<span class="online">'.$row_course['on_off_state'].'</span>
 
 									</p>
 									<div class="para-box clearfix">
 										<p class="name">
 											<span class="icon"></span>
-											<span>蓝鸥科技教育有限公司</span>
+											<span>'.$row_course['address'].'</span>
 										</p>
 										<p class="day">
 											<span class="icon"></span>
-											<span>120天</span>
+											<span>'.($row_course['course_time'] * 30).'天</span>
 										</p>
 										<p class="sell">
 											<span>已售</span>
-											<span class="green">1200</span>
+											<span class="green">'.$row_course['sell_num'].'</span>
 										</p>
 										<p class="score">
 											<span>评分</span>
-											<span class="geen">8.9</span>
+											<span class="geen">'.$row_course['score'].'</span>
 											<span>分</span>
 
 										</p>
 									</div>
 								</div>
 								<div class="price-box">
-									<p class="now-price">&yen;1288</p>
+									<p class="now-price">&yen;'.$row_course['now_price'].'</p>
 									<p class="old-price">
 										<span>价值：</span>
-										<del>5000</del>
+										<del>'.$row_course['old_price'].'</del>
 									</p>
 								</div>
 							</a>
-						</li>
-						<li>
-							<a href="###" class="clearfix">
-								<div class="word-box">
-									<p class="title">
-										<span>一年会员-购买专用连接（仅用于购买用）-中艺摄影网校&nbsp;&nbsp;</span>
-										<span class="online">线上</span>
+						</li>';
 
-									</p>
-									<div class="para-box clearfix">
-										<p class="name">
-											<span class="icon"></span>
-											<span>蓝鸥科技教育有限公司</span>
-										</p>
-										<p class="day">
-											<span class="icon"></span>
-											<span>120天</span>
-										</p>
-										<p class="sell">
-											<span>已售</span>
-											<span class="green">1200</span>
-										</p>
-										<p class="score">
-											<span>评分</span>
-											<span class="geen">8.9</span>
-											<span>分</span>
+			# code...
+		}
+		echo $str;
+		# code...
+	}
 
-										</p>
-									</div>
-								</div>
-								<div class="price-box">
-									<p class="now-price">&yen;1288</p>
-									<p class="old-price">
-										<span>价值：</span>
-										<del>5000</del>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="###" class="clearfix">
-								<div class="word-box">
-									<p class="title">
-										<span>一年会员-购买专用连接（仅用于购买用）-中艺摄影网校&nbsp;&nbsp;</span>
-										<span class="offline">线下</span>
-
-									</p>
-									<div class="para-box clearfix">
-										<p class="name">
-											<span class="icon"></span>
-											<span>蓝鸥科技教育有限公司</span>
-										</p>
-										<p class="day">
-											<span class="icon"></span>
-											<span>120天</span>
-										</p>
-										<p class="sell">
-											<span>已售</span>
-											<span class="green">1200</span>
-										</p>
-										<p class="score">
-											<span>评分</span>
-											<span class="geen">8.9</span>
-											<span>分</span>
-
-										</p>
-									</div>
-								</div>
-								<div class="price-box">
-									<p class="now-price">&yen;1288</p>
-									<p class="old-price">
-										<span>价值：</span>
-										<del>5000</del>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="###" class="clearfix">
-								<div class="word-box">
-									<p class="title">
-										<span>一年会员-购买专用连接（仅用于购买用）-中艺摄影网校&nbsp;&nbsp;</span>
-										<span class="online">线上</span>
-
-									</p>
-									<div class="para-box clearfix">
-										<p class="name">
-											<span class="icon"></span>
-											<span>蓝鸥科技教育有限公司</span>
-										</p>
-										<p class="day">
-											<span class="icon"></span>
-											<span>120天</span>
-										</p>
-										<p class="sell">
-											<span>已售</span>
-											<span class="green">1200</span>
-										</p>
-										<p class="score">
-											<span>评分</span>
-											<span class="geen">8.9</span>
-											<span>分</span>
-
-										</p>
-									</div>
-								</div>
-								<div class="price-box">
-									<p class="now-price">&yen;1288</p>
-									<p class="old-price">
-										<span>价值：</span>
-										<del>5000</del>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="###" class="clearfix">
-								<div class="word-box">
-									<p class="title">
-										<span>一年会员-购买专用连接（仅用于购买用）-中艺摄影网校&nbsp;&nbsp;</span>
-										<span class="offline">线下</span>
-
-									</p>
-									<div class="para-box clearfix">
-										<p class="name">
-											<span class="icon"></span>
-											<span>蓝鸥科技教育有限公司</span>
-										</p>
-										<p class="day">
-											<span class="icon"></span>
-											<span>120天</span>
-										</p>
-										<p class="sell">
-											<span>已售</span>
-											<span class="green">1200</span>
-										</p>
-										<p class="score">
-											<span>评分</span>
-											<span class="geen">8.9</span>
-											<span>分</span>
-
-										</p>
-									</div>
-								</div>
-								<div class="price-box">
-									<p class="now-price">&yen;1288</p>
-									<p class="old-price">
-										<span>价值：</span>
-										<del>5000</del>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="###" class="clearfix">
-								<div class="word-box">
-									<p class="title">
-										<span>一年会员-购买专用连接（仅用于购买用）-中艺摄影网校&nbsp;&nbsp;</span>
-										<span class="online">线上</span>
-
-									</p>
-									<div class="para-box clearfix">
-										<p class="name">
-											<span class="icon"></span>
-											<span>蓝鸥科技教育有限公司</span>
-										</p>
-										<p class="day">
-											<span class="icon"></span>
-											<span>120天</span>
-										</p>
-										<p class="sell">
-											<span>已售</span>
-											<span class="green">1200</span>
-										</p>
-										<p class="score">
-											<span>评分</span>
-											<span class="geen">8.9</span>
-											<span>分</span>
-
-										</p>
-									</div>
-								</div>
-								<div class="price-box">
-									<p class="now-price">&yen;1288</p>
-									<p class="old-price">
-										<span>价值：</span>
-										<del>5000</del>
-									</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="###" class="clearfix">
-								<div class="word-box">
-									<p class="title">
-										<span>一年会员-购买专用连接（仅用于购买用）-中艺摄影网校&nbsp;&nbsp;</span>
-										<span class="offline">线下</span>
-
-									</p>
-									<div class="para-box clearfix">
-										<p class="name">
-											<span class="icon"></span>
-											<span>蓝鸥科技教育有限公司</span>
-										</p>
-										<p class="day">
-											<span class="icon"></span>
-											<span>120天</span>
-										</p>
-										<p class="sell">
-											<span>已售</span>
-											<span class="green">1200</span>
-										</p>
-										<p class="score">
-											<span>评分</span>
-											<span class="geen">8.9</span>
-											<span>分</span>
-
-										</p>
-									</div>
-								</div>
-								<div class="price-box">
-									<p class="now-price">&yen;1288</p>
-									<p class="old-price">
-										<span>价值：</span>
-										<del>5000</del>
-									</p>
-								</div>
-							</a>
-						</li>
-										
+ ?>
+								
 					</ul>
 
 
@@ -435,14 +270,24 @@
 					<!-- 2，学校简介 -->
 					<div class="school-intro tab">
 						<p class="title">
-							蓝鸥科技教育有限公司简介
+							<?php echo $row['intro_title'] ?>
 						</p>
-						<p class="para">
-							蓝鸥是一家集产、学、研为一体的综合性移动互联网研发培训机构，致力于iOS开发、Unity3D游戏开发、Android开发和HTML5前端开发等软件人才的培养。蓝鸥强大的师资阵容，纯净的教育理念，严格的管理制度，使其成为了美国苹果公司AATC认证官方授权培训中心、Unity官方授权培训中心，也是目前国内仅有的一家”两大官方授权于一身“的移动互联网培训企业。2012年10月18日，刘辉、李静波、崔亚允，中国移动互联网开发行业的三位领军人物，强强联手，倾力打造了蓝鸥。“三巨头”（开发、技术、教学）护航蓝鸥一路向前，经过短短的三年，蓝鸥已拥有在职员工400多人，学员上万人，在全国共拥有8家实训中心、2家中心直属分院和1家项目研发基地，分别是：北京实训中心、上海实训中心、广州实训中心、大连实训中心、郑州实训中心、西安实训中心、武汉实训中心、成都实训中心、北京中心直属分院（石家庄）、大连中心直属分院（哈尔滨）和上海项目研发基地。
-						</p>
-						<p class="para">
+						
+						<?php 
+							$arr = explode('&*&', $row['intro_para']);
+							$str = '';
+							for ($i=0; $i < count($arr); $i++) { 
+								$str .= '<p class="para">'.$arr[$i].'</p>';
+								# code...
+							}
+							echo $str;
+
+						 ?>
+
+
+						<!-- <p class="para">
 							蓝鸥是一家集产、学、研为一体的综合性移动互联网研发培训机构，致力于iOS开发、Unity3D游戏开发、Android开发和HTML5前端开发等软件人才的培养。蓝鸥强大的师资阵容，纯净的教育理念，严格的管理制度，使其成为了美国苹果公司AATC认证官方授权培训中心、Unity官方授权培训中心，也是目前国内仅有的一家”两大官方授权于一身“的移动互联网培训企业。2012年10月18日，刘辉、李静波、崔亚允，中国移动互联网开发行业的三位领军人物，强强联手，倾力打造了蓝鸥。“三巨头”（开发、技术、教学）护航蓝鸥一路向前，经过中国移动互联网开发行业的三位领军人物，强强联手，倾力打造了蓝鸥。
-						</p>
+						</p> -->
 					</div>
 
 
