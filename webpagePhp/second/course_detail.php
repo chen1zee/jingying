@@ -49,22 +49,22 @@
 			<div class="pub-logo"></div>
 			<ul class="pub-list">
 				<li>
-					<a href="###">
+					<a href="./index_second.html">
 						<h2>首页</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###" class="pub-active">
+					<a href="javascript:void(0);" class="pub-active">
 						<h2>线下课程</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###">
+					<a href="../course.php">
 						<h2>在线课程</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###">
+					<a href="./">
 						<h2>学校</h2>
 					</a>
 				</li>
@@ -640,7 +640,11 @@
 <?php 
 	$sql = 'select * from `c-offline-course-comment` where coursename = \''.$row['coursename'].'\'';
  ?>
-							
+
+
+
+
+
 						</ul>
 
 						<div class="paganation" id="paganation">
