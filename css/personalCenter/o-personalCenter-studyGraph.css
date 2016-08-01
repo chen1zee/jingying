@@ -17,8 +17,10 @@
 #avator{
 	width: 88px;
 	height: 88px;
+	border-radius: 88px;
 	margin: 20px auto 10px;
 	background: url(../../img/personalCenter/o-OriginalAvatar.png) no-repeat center center;
+	background-size: 88px 88px!important;
 }
 #name{
 	text-align: center;

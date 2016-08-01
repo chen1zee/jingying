@@ -43,10 +43,13 @@
 	border-color: red!important;
 }
 .trueFalse{
+	display: none;
 	width: 16px;
 	height: 16px;
-	display: inline-block;
 	margin-right: 5px;
 	vertical-align: middle;
 	background: url(../../img/personalCenter/o-logos-trueFalse.png) no-repeat center top;
+}
+.tips{
+	display: none;
 }
