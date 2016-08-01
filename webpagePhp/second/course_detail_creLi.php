@@ -1,8 +1,9 @@
 <?php 
+	session
 	include_once('../../js/c-conn.php');
 
 	// $coursename = $_GET['coursename'];
-	// $line_num = ($_GET['num'] - 1) * 3;//---从第几条开始去数据，，取三条
+
 
 
 
