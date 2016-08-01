@@ -52,7 +52,7 @@
 			</div>
 			<!-- 输入框 -->
 			<div class="logincont">
-				<form action="" method="post" name="login" class="form-login">
+				<form action="###" method="post" name="login" class="form-login">
 					<!-- 输入手机号 -->
 					<div class="phone-box clearfix">
 						<span></span>
@@ -66,7 +66,7 @@
 					<!-- 密码 -->
 					<div class="password-box">
 						<span></span>
-						<input type="password" name="password" placeholder="请输入密码" class="loginPassword">
+						<input type="password" name="loginPwd" placeholder="请输入密码" class="loginPassword">
 					</div>
 					<!-- 提示错误 -->
 					<div class="error error2">
@@ -100,9 +100,11 @@
 						</p>
 					</div>
 					<!-- 登录 -->
-					<div class="button">
-						<input type="submit" name="submit" class="submit" value="登录" id="login-submit">
-					</div>
+						<div class="button" id="login-submit">
+							<input type="submit" name="submit" class="submit" value="登录" >
+						</div>
+					
+					
 
 				</form>
 			</div>
@@ -186,6 +188,8 @@
 
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script type="text/javascript">
+		var a = 0,b = 0,c = 0,d=0,e=0,f=0;
+		// var num_arr = new Array(1);
 		$(function() {
 			$(".login-title a").click(function(){
 				$(this).addClass('active').siblings().removeClass('active');
@@ -193,7 +197,193 @@
 				$('.registercont').show().eq($(this).index()).hide();				
 			})
 
-		// 获取验证码倒计时
+      // 正则验证
+
+        // *******************登录页面的事件：
+
+      // 登录手机号码验证
+    $(".loginPhone[name=username]").blur(function () {//这里和数据库的验证暂时没写
+        var tel = $(".loginPhone").val();
+        var reg =/^1[3458][0-9]\d{8}$/;
+         if(tel == null || tel == "") {
+     	     $(".error1 span").text("登录手机号码不能为空");
+     	     $(".error1 ").show();
+     	     
+     	} 
+     	else if(!reg.test(tel)) {
+     	     $(".error1 ").show();
+             $(".error1 span").text("填写的手机号码格式不正确");
+            
+     	}else {
+     		$.ajax({
+            	type:"POST",
+            	url:"chk_login_phone.php",
+            	data:{
+            		phoneNum:$('.loginPhone[name=username]').val().trim()
+
+            	},
+            	dataType:"json",
+            	success:function(data) {
+            		console.log(data) ;
+            			if(data.msg == 1) {
+            				 $(".error1 ").show();
+            				 $(".error1 span").text("该手机号码是会员账户");
+            				 a = 0;
+            				 
+            			} else {
+            				  // $(".error1 ").hide();
+            				 $(".error1 ").show();
+            				 $(".error1 span").text("该手机号码不是会员账户");
+            				a = 1;
+            			}
+
+            		}
+            	
+            })
+     	}     
+        
+    });
+
+
+   //登录密码验证
+    $(".loginPassword[name=loginPwd]").on('blur',function(){//这里和数据库的验证暂时没写
+     	var tel = $(".loginPassword[name=loginPwd]").val();
+     	if(tel == null || tel == "") {
+     		$(".error2 span").text("密码不能为空");
+     		$(".error2 ").show();
+     		
+     	}else {
+     		// $(".error2 ").hide();
+     		$.ajax({
+            	type:"POST",
+            	url:"chk_login_pwd.php",
+            	data:{
+            		phoneNum:$('.loginPhone[name=username]').val().trim(),
+            		pwd:$('.loginPassword[name=loginPwd]').val().trim()
+            	},
+            	dataType:"json",
+            	success:function(data) {
+            		console.log(data);
+            			if(data.msg == 1) {
+            				 $(".error2 ").show();
+            				 $(".error2 span").text("该密码正确");
+            				 b = 0;
+            				 
+            			} else {
+            				  // $(".error2 ").hide();
+            				 $(".error2 ").show();
+            				 $(".error2 span").text("该密码不正确");
+            				 b = 1;
+            			}
+
+            		}
+            	
+            })
+     	}
+     })
+
+
+      // 点击登录验证码切换图片
+      $("#code").click(function(){ //点击后随机生成验证码
+		$(this).attr("src",'h-code.php?');
+	})
+
+      // 登录验证码后台验证
+
+		$(".loginCode").on('blur',function(){
+    
+     	if(!$(".loginCode").val().trim()) {
+     		$(".error3 span").text("验证码不能为空");
+     		$(".error3 ").show();
+     	}else {
+     		$.ajax({
+     			type:"GET",
+     			url:"chk_code.php",
+     			data:{
+     				code:$('.loginCode').val().trim()
+     			},
+     			dataType:'json',
+     			success:function(data) {
+     				console.log(data);
+     				if(data.msg==1) {
+     					$(".error3 span").text("验证码正确");
+     					$(".error3 ").show();
+     					c = 0;
+     				} else {
+     					$(".error3 span").text("请输入正确的验证码");
+     					$(".error3 ").show();
+     					c = 1;
+     				}
+     			}
+     		})
+     	}
+     })
+
+
+     // 账号，密码，验证码正确后点击登录
+   
+	$('#login-submit').on("click",function(){
+	
+			if (a == 0 && b==0 && c==0) {
+				$.ajax({
+						type:"POST",
+						url:"setUser.php",
+						data:{
+							phoneNum:$.trim($("#phone").val())
+						},
+						success:function() {
+							window.location.href='./second/index_second.php';
+						}
+					})
+			}
+		
+	})
+
+
+
+       // 注册手机号码验证  
+    $(".registPhone").blur(function () {//这里和数据库的验证暂时没写
+        var tel = $(".registPhone").val();
+        var reg =/^1[3458][0-9]\d{8}$/;
+         if(tel == null || tel == "") {
+     		$(".error4 span").text("注册手机号码不能为空");
+     		$(".error4 ").show();
+     	} else if(!reg.test(tel)) {
+     		 $(".error4 ").show();
+             $(".error4 span").text("该手机号码格式不正确");
+     	}
+     	else {
+     		 $.ajax({
+            	type:"POST",
+            	url:"chk_register_phone.php",
+            	data:{
+            		phoneNum:$('.registPhone').val().trim()
+
+            	},
+            	dataType:"json",
+            	success:function(data) {
+            		console.log(data) ;
+            			if(data.msg == 1) {
+            				 $(".error4 ").show();
+            				 $(".error4 span").text("该手机号码已被注册");
+            				 d=1;
+            			} else {
+            				   // $(".error4 ").hide();
+            				  $(".error4 ").show();
+            				 $(".error4 span").text("该手机号码可以注册");
+            				 d=0;
+            			}
+
+            		}
+            	
+            })
+     	}
+
+    });
+
+
+
+		// 注册获取验证码倒计时
 		var wait=60;  
 		function time(obj) {  
         if (wait == 0) {   
@@ -221,137 +411,17 @@
    	 }  
       $(".code-right").click(function(){
 		time(this); 
+		num_arr = new Array(1);
+		$.each(num_arr,function(index,val) {
+    		num_arr[index] = Math.ceil(Math.random()*9000)+1000;
+		});
+			alert(num_arr);
+
 	}) 
 
 
-      // 正则验证
-
-      // 登录手机号码验证
-    $(".loginPhone[name=username]").blur(function () {//这里和数据库的验证暂时没写
-        var tel = $(".loginPhone").val();
-        var reg =/^1[3458][0-9]\d{8}$/;
-         if(tel == null || tel == "") {
-     	     $(".error1 span").text("登录手机号码不能为空");
-     	     $(".error1 ").show();
-     	} 
-     	else if(!reg.test(tel)) {
-     	     $(".error1 ").show();
-             $(".error1 span").text("填写的手机号码格式不正确");
-     	}else {
-     		$.ajax({
-            	type:"POST",
-            	url:"chk_login_phone.php",
-            	data:{
-            		phoneNum:$('.loginPhone[name=username]').val().trim()
-
-            	},
-            	dataType:"json",
-            	success:function(data) {
-            		console.log(data) ;
-            			if(data.msg == 1) {
-            				 $(".error1 ").show();
-            				 $(".error1 span").text("该手机号码是会员账户");
-            			} else {
-            				   $(".error1 ").hide();
-            			}
-
-            		}
-            	
-            })
-     	}
-     		
-     
 
 
-       
-        
-    });
-
-      
-
-
-       // 注册手机号码验证  
-    $(".registPhone").blur(function () {//这里和数据库的验证暂时没写
-        var tel = $(".registPhone").val();
-        var reg =/^1[3458][0-9]\d{8}$/;
-         if(tel == null || tel == "") {
-     		$(".error4 span").text("注册手机号码不能为空");
-     		$(".error4 ").show();
-     	} else if(!reg.test(tel)) {
-     		 $(".error4 ").show();
-             $(".error4 span").text("该手机号码格式不正确");
-     	}
-     	else {
-     		$(".error4 ").hide();
-     		 $.ajax({
-            	type:"POST",
-            	url:"chk_register_phone.php",
-            	data:{
-            		phoneNum:$('.registPhone').val().trim()
-
-            	},
-            	dataType:"json",
-            	success:function(data) {
-            		console.log(data) ;
-            			if(data.msg == 1) {
-            				 $(".error4 ").show();
-            				 $(".error4 span").text("该手机号码已被注册");
-            			} else {
-            				   $(".error4 ").hide();
-            			}
-
-            		}
-            	
-            })
-     	}
-
-    });
-
-    //登录密码验证
-    $(".loginPassword").on('blur',function(){//这里和数据库的验证暂时没写
-     	var tel = $(".loginPassword").val();
-     	if(tel == null || tel == "") {
-     		$(".error2 span").text("密码不能为空");
-     		$(".error2 ").show();
-     	}else {
-     		$(".error2 ").hide();
-     		$.ajax({
-            	type:"POST",
-            	url:"chk_login_pwd.php",
-            	data:{
-            		pwd:$('.loginPassword').val().trim()
-            	},
-            	dataType:"json",
-            	success:function(data) {
-            		console.log(data);
-            			if(data.msg == 1) {
-            				 $(".error2 ").show();
-            				 $(".error2 span").text("该密码正确");
-            			} else {
-            				  $(".error2 ").hide();
-            			}
-
-            		}
-            	
-            })
-     	}
-
-     	
-
-     	
-
-     })
-
-    //登录验证码
-     // $(".loginCode").blur('click',function(){//这里和数据库的验证暂时没写
-     // 	var tel = $(".loginCode").val();
-     // 	if(tel.length == 0) {
-     // 		$(".error3 span").text("验证码不能为空");
-     // 		$(".error3 ").show();
-     // 	}else {
-     // 		$(".error3 ").hide();
-     // 	}
-     // })
 
      // 注册验证码
      $(".registCode").on('blur',function(){//这里和数据库的验证暂时没写
@@ -359,8 +429,21 @@
      	if(tel.length == 0) {
      		$(".error5 span").text("验证码不为空");
      		$(".error5").show();
+     	
      	}else {
      		$(".error5").hide();
+     		
+     	};
+
+     	 // num_arr = new Array(1);
+     	if($(".registCode").val() == num_arr) {
+     		$(".error5 span").text("验证码正确");
+     		$(".error5").show();
+     		e=0;
+     	}else {
+     		$(".error5 span").text("验证码不正确");
+     		$(".error5").show();
+     		e=1;
      	}
      })
 
@@ -388,71 +471,51 @@
      	if(tel!==tel1) {
      		$(".error7 span").text("密码不一致");
      		$(".error7 ").show();
+     		f=1;
      	}else {
      		$(".error7").hide();
-     	}
-     })
-
-      // 点击登录验证码切换图片
-      $("#code").click(function(){ //点击后随机生成验证码
-		$(this).attr("src",'h-code.php?');
-	})
-
-      // 后台验证
-
-		$(".loginCode").on('blur',function(){
-    
-     	if(!$(".loginCode").val().trim()) {
-     		$(".error3 span").text("验证码不能为空");
-     		$(".error3 ").show();
-     	}else {
-     		$.ajax({
-     			type:"GET",
-     			url:"chk_code.php",
-     			data:{
-     				code:$('.loginCode').val().trim()
-     			},
-     			dataType:'json',
-     			success:function(data) {
-     				console.log(data);
-     				if(data.msg==1) {
-     					$(".error3 span").text("验证码正确");
-     					$(".error3 ").show();
-     				} else {
-     					$(".error3 span").text("请输入正确的验证码");
-     					$(".error3 ").show();
-     				}
-     			}
-     		})
+     		f=0;
      	}
      })
 
 
-	// //点击登录提交空的表单内容
-	// 	$("#login-submit").on("click", function() {
-	// 		//1.表单数据提交之前判断输入是否为空
-	// 		$(".logincont input").each(function(index,key) {
-	// 			if(!$(key).val().trim()) {
-	// 				//内容为空的时候，提示信息显示
-	// 				$(".error1 span").text("请填写手机账户");
- //     				$(".error1 ").show();
-	// 				$(".error2 span").text("请填写密码");
- //     				$(".error2 ").show();
-	// 				$(".error3 span").text("请填写验证码");
- //     				$(".error3 ").show();
-	// 				// return;
-	// 			}else {
-	// 				//内容不为空，提示信息隐藏
-	// 				$(".error1 ").hide();
-	// 				$(".error2 ").hide();
-	// 				$(".error3 ").hide();
+      // 注册提交
 
-	// 			}
-	// 		})	
-	// 		return false
-			
-	// 	})
+      $("#register-submit").on("click",function(){
+      		if (d == 0 && e==0 && f==0) {
+				$.ajax({
+						type:"POST",
+						url:"setUser.php",
+						data:{
+							phoneNum:$.trim($(".registPhone").val()),
+							pwd:$.trim($(".registPassword").val())
 
+						},
+						success:function() {
+							alert("恭喜你，注册成功！")
+						}
+					}).fail(function(){
+						alert("3");
+					});
+
+				$.ajax({
+						type:"POST",
+						url:"chk_register.php",
+						data:{
+							phoneNum:$.trim($(".registPhone").val()),
+							pwd:$.trim($(".registPassword").val())
+						},
+						dataType:"json",
+						success:function(data) {
+            				window.location.href='sign.php';
+            				 	
+						}
+				})
+			}
+      })
+
+
+	
 })
 	</script>
 	

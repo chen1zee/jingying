@@ -3,8 +3,9 @@
 	include_once("../js/h-conn.php");
 
 	$phoneNum = $_POST["phoneNum"];
-	$sql = "SELECT * FROM `o-personalCenter` ORDER BY `o-personalCenter`.`phoneNum`";
-	// $sql = "select * from o-personalCenter where `phoneNum` = '$phoneNum' and `pwd` = MD5('$pwd')";
+	$sql = "SELECT `phoneNum` FROM `o-personalCenter` WHERE `phoneNum` = '$phoneNum'";
+
+
 	mysql_query($sql);
 	//3.执行sql语句
 	mysql_query($sql);
