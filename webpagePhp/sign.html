@@ -247,18 +247,25 @@
       // 注册手机号码验证  
     $(".registPhone").blur(function () {//这里和数据库的验证暂时没写
         var tel = $(".registPhone").val();
-        var reg = /^1\d{10}$/;
-        if (reg.test(tel)) {
-            $(".error4").hide();
-        }
-        else{
+        var reg =/^1[3458][0-9]\d{8}$/;
+        if (!reg.test(tel)) {
+            // $(".error4").hide();
             $(".error4 span").text("您输入的手机号码格式不正确");
             $(".error4 ").show();
-         }
+        }
+        // else{
+        //     $.ajax({
+        //     	type:"GET",
+        //     	url:"chk_register_phone.php",
+        //     	data:{
+        //     		phoneNum:$('.registPhone').val().trim()
+        //     	}
+        //     })
+        //  }
 
          if(tel.length == 0) {
-     		$(".error4 span").text("手机号码不能为空");
-     		$(".error4 ").show();
+     		$(".error1 span").text("手机号码不能为空");
+     		$(".error1 ").show();
      	}
 
     });
