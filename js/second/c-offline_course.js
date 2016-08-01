@@ -13,6 +13,7 @@ $(function () {
 			$('#priceSort').attr('class','').children('i').html('&#xe6b6');
 			$('#goodSort').attr('class','').children('i').html('&#xe6b6');
 			$('#greenBar').css('left',0);
+			
 			changeLi();
 			search();
 		 /* body... */ 
@@ -127,8 +128,6 @@ $(function () {
 	// ---改变页数 函数
 
 	if (totalListNum > listLength) {//---页数大于10页才有事件
-
-
 
 
 		function more7next() {//--大于等于7且没到最底时
@@ -293,6 +292,4 @@ $(function () {
 
 
 	
-
-
 
