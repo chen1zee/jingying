@@ -1,0 +1,367 @@
+html{
+    height: 100%;
+}
+body{
+    width: 100%;
+}
+header{
+    width: 100%;
+    height: 120px;
+}
+.header-mean{
+    width: 1220px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #33B574;
+}
+article{
+    width: 100%;
+    min-height: 960px;
+    padding-top: 30px;
+    background-color: #F5F5F5;
+}
+#middle{
+    width: 1220px;
+    margin: 0 auto;
+}
+#middle-left{
+    display: inline-block;
+    float: left;
+}
+#middle-left>a>li{
+    width: 150px;
+    height: 50px;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 50px;
+    color: #333333;
+    background-color: white;
+    border-left: 2px solid white;
+}
+#middle-left>a:nth-of-type(2)>li{
+    border-left: 2px solid #33B574!important;
+}
+#middle-left>a>li:hover{
+    background-color: #33b574!important;
+    border-left: 2px solid #33b574!important;
+    color: white;
+}
+.onclick-middle-left{
+    background-color: #fafafa!important;
+    border-left: 2px solid #33b574!important;
+}
+#middle-right{
+    width: 1040px;
+    padding-bottom: 55px;
+    float: right;
+    background-color: white;
+
+}
+#words-a{
+    width: 1040px;
+    display: inline-block;
+    float: right;
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: #333333;
+}
+#middle-right-nav{
+    width: 1040px;
+    height: 70px;
+}
+#middle-right-nav>a>li{
+    display: inline-block;
+    float: left;
+    width: 126px;
+    height: 65px;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    line-height: 70px;
+    border-top: 5px solid white;
+}
+.middle-right-nav-on{
+    color: #33B574!important;
+    border-color:#33B574 !important;
+}
+#delete-orders{
+    float:right;
+    margin-right: 30px;
+}
+#delete-orders:hover #delete-orders-words{
+    color: #33B574;
+    cursor: pointer;
+}
+#delete-orders:hover #delete-logo{
+    background-position-y: -13px;
+    cursor: pointer;
+}
+#delete-orders-words{
+    display: inline-block;
+    height: 70px;
+    font-size: 14px;
+    line-height: 70px;
+    color: #999;
+}
+#delete-logo{
+    display: inline-block;
+    width: 14px;
+    height: 13px;
+    vertical-align: top;
+    margin-top: 28px;
+    background: url(../../img/myOrders/delete-logo.png) no-repeat center top;
+}
+#orders-list{
+    width: 978px;
+    margin: 0 auto;
+    border: 1px solid #E8E8E8;
+}
+#orders-list-top{
+    width: 100%;
+    height: 39px;
+    border-bottom: 1px solid #E8E8E8;
+    background-color: #FAFAFA;
+}
+#orders-list-top>div{
+    margin-left: 16px;
+}
+#orders-list-top>p{
+    display: inline-block;
+    height: 100%;
+    line-height: 40px;
+    color: #666;
+    font-size: 14px;
+}
+#orders-list-top>p:not(:nth-of-type(1)){
+    width: 100px;
+    text-align: center;
+}
+#orders-list-top>p:nth-of-type(2){
+    width: 390px;
+}
+#orders-list-top>p:nth-last-of-type(1){
+    width: 80px!important;
+}
+#orders-list>li{
+    width: 948px;
+    min-height: 66px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    margin: 0 auto;
+}
+#orders-list>li:not(:last-child){
+    border-bottom: 1px solid #E8E8E8;
+}
+#orders-list>li>input{
+    margin-right: 6px;
+    vertical-align: middle;
+}
+#orders-list>li>div:not(:last-child){
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #333333;
+}
+#orders-list>li>div:not(:nth-of-type(2)){
+    text-align: center;
+    line-height: 66px;
+}
+#orders-list>li>div:nth-of-type(2){
+    position: relative;
+    width: 424px;
+    height: 100%;
+}
+.orderlist-img{
+    display: inline-block;
+    float:left;
+    width: 110px;
+    height: 66px;
+    margin-right: 6px;
+}
+.orders-name{
+    float: left;
+    width: 263px;
+}
+.orders-num{
+    float: left;
+    position: absolute;
+    left: 116px;
+    bottom: 0;
+}
+.orders-operation{
+    display: inline-block;
+    width: 72px!important;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.orders-operation-waitToPay{
+    width: 70px;
+    height: 28px;
+    margin-top: 20px;
+    color: white;
+    background-color: #e79c67;
+    line-height: 28px;
+    text-align: center;
+}
+.orders-operation-refund{
+    width: 68px;
+    height: 26px;
+    color: #e79c67;
+    background-color:white;
+    line-height: 28px;
+    border: 1px solid #E79C67;
+    text-align: center;
+}
+.orders-operation-evaluate{
+    width: 68px;
+    height: 26px;
+    margin-top: 20px;
+    color: #e79c67;
+    background-color:white;
+    line-height: 28px;
+    border: 1px solid #E79C67;
+    text-align: center;
+}
+
+.refund-wrap{
+    display: none;
+    width: 950px!important;
+    height: 318px!important;
+    margin: 0 auto;
+    margin-top: 28px;
+    border-top: 1px solid #E8E8E8;
+    text-align: left!important;
+    border-bottom: 1px solid #E8E8E8;
+    background-color: #F2F2F2;
+
+}
+.refund-wrap>p{
+    height: 34px;
+    margin-bottom: 16px;
+    line-height: 34px;
+}
+.refund-wrap-reason{
+    color: #333;
+    height: 34px;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 17px;
+    line-height: 34px;
+    text-align: left;
+}
+.refund-wrap-reason>p{
+    display: inline-block;
+    vertical-align: middle;
+}
+.refund-wrap p>span{
+    color: red;
+    margin-right: 5px;
+}
+#parent{
+    display: inline-block;
+    background: url('http://ourjs.github.io/static/2015/arrow.png') right center no-repeat;
+    width: 220px;
+    height: 34px;
+    background-color: white;
+    overflow: hidden;
+    border: solid 1px #ccc;
+    vertical-align: middle;
+}
+
+#parent select{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    background:transparent;
+    border:none;
+    padding-left:10px;
+    width: 220px;
+    height:100%;
+}
+.refund-wrap-money{
+    color: #333;
+    font-size: 16px;
+    margin-left: 30px;
+    text-align: left;
+}
+.refund-wrap-money>input{
+    width: 220px;
+    height: 30px;
+}
+.refund-details{
+    height: 140px;
+}
+.refund-details>p{
+    display: inline-block;
+    margin-left: 43px;
+    margin-right: 0;
+    line-height: 16px;
+    color: #333;
+    font-size: 16px;
+    vertical-align: top;
+}
+.refund-details>textarea{
+    width: 540px;
+    height: 100px;
+    padding: 10px;
+    resize: none;
+    border: 1px solid #E0E0E0;
+    background-color: white;
+    font-size: 14px;
+    text-align: left!important;
+    vertical-align: text-bottom;
+
+}
+.words-num{
+    vertical-align: bottom;
+    font-size: 12px;
+    color: #666;
+}
+.refund-wrap-submit{
+    width: 108px;
+    height: 33px;
+    margin-top: -56px;
+    margin-left: 128px;
+    background-color: #33B574;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+}
+.words-num>span{
+    color: #33B574;
+    margin:0;
+}
+/*自定义checkbox样式*/
+.checkbox {
+    display: inline-block;
+    width: 14px!important;
+    min-height: 14px;
+    padding-left: 14px;
+    position: relative;
+}
+input[type="checkbox"] {
+    -webkit-appearance: none;
+}
+input[type="checkbox"] + span:before {
+    background: url(../../img/myOrders/o-checkbox-logo.png);
+    content: " ";
+    height: 14px;
+    left: 0;
+    position: absolute;
+    width: 14px;
+}
+input[type="checkbox"] {
+    box-sizing: border-box;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+}
+input[type="checkbox"]:checked + span:before {
+    background-position: 0 -14px;
+}

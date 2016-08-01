@@ -60,3 +60,12 @@
 .lesson-list>li{
 	display: none;
 }
+.lesson-list>li>div{
+	height: 50px;
+	width: 952px;
+	margin-left: 30px;
+	font-size: 14px;
+	line-height: 50px;
+	color: #999;
+	border-bottom: 1px solid #E8E8E8;
+}
