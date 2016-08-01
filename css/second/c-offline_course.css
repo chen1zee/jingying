@@ -126,7 +126,6 @@
 	width: 110px;
 	height: 4px;
 	background-color: #29b572;
-	transition: left 0.3s;
 }
 .rank-style>.totolNum{
 	float: right;

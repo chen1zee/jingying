@@ -40,10 +40,10 @@
 	opacity: 0.5;
 }
 
-/*.block-left li.icon {
+.block-left li.icon {
 	opacity: 1;
 	transition: opacity 2s;
-}*/
+}
 
 .block-left a {
 	text-decoration: none;
@@ -597,7 +597,7 @@
 
 .goTop {
 	position: fixed;
-	left: 1220px;
+	right: 20px;
 	bottom: 20px;
 	text-align: center;
 	background-color: #fff;
@@ -607,7 +607,7 @@
 	
 }
 
-/*@media only screen and (max-width:1400px) {
+@media only screen and (max-width:1400px) {
 	.goTop {
 	position: fixed;
 	right: -60px;
@@ -620,7 +620,7 @@
 	display: block;
 
 }
-}*/
+}
 
 .goTop-link {
 	width: 58px;

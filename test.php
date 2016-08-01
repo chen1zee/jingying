@@ -1,20 +1,34 @@
 <?php 
+	header('Content-Type:text/html;charset=utf8');
+	echo 'adasdasd'.'<br />';
+	// $url = '127.0.0.1:3306';
+	$url = '172.16.14.14:3306';
+	$root = 'guest';
+	$pwd = 'root';
 
-	include_once('./js/c-conn.php');
-
-
-
-	// for ($i=0; $i < 120; $i++) { 
-	// 	$sql = "UPDATE `gzh160301`.`c-school` SET `intro_title` = '".$i."蓝鸥科技教育有限公司简介' WHERE `c-school`.`id` = ".$i.";";
-
-	// 	mysql_query($sql);
-
-	// 	# code...
-	// }
+	// 连接，返回资源标识符
+	$conn = @mysql_connect($url,$root,$pwd) or die("连接失败");
 
 
+
+
+	// 2，选择数据库
+	mysql_select_db('gzh160301');
+	mysql_query('set names utf8');
+
+
+	$sql = 'select * from student';
+
+	$result = mysql_query($sql);
 	
 	
+	while($row = mysql_fetch_array($result)){
+		echo '名字：'.$row['name'].'<br />';
+		echo '性别：'.$row['gender'].'<br />';
+	}
+
+
+
 
 
 
