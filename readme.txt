@@ -39,6 +39,9 @@
 			course.php//---线上课程
 
 
+			gzh160301.sql//——-数据库
+
+
 
 
 			//----------数据库连接conn.php 分三个，本意是区分个人权限，
@@ -46,6 +49,7 @@
 				jingying/js/h-conn.php
 				jingying/webpagePhp/personalCenter/personalCenter-conn.php
 
+			
 			
 
 
