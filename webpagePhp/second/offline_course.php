@@ -247,7 +247,7 @@
 			</ul>
 
 			<div class="paganation" id="paganation">
-				<a href="###" id="prev">上一页</a>
+				<a href="javascript:void(0);" id="prev">上一页</a>
 				<ul class="clearfix">
 					<!-- <li class="active">1</li>
 					<li>2</li>
@@ -261,7 +261,7 @@
 					<li class="none">...</li>
 					<li>100</li> -->
 				</ul>
-				<a href="###" id="next">下一页</a>
+				<a href="javascript:void(0);" id="next">下一页</a>
 
 			</div>
 

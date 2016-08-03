@@ -125,7 +125,7 @@ echo "<p id='theCourseId' style='display:none;'>".$id."</p>";
 					<span>
 						<?php echo $row['schoolname']; ?>
 					</span>
-					<a href="###">[公司详情]</a>
+					<a href="./school_detail.php">[公司详情]</a>
 				</p>
 				<p class="company">
 					<span class="icon location"></span>

@@ -24,7 +24,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="./offline_course.html" class="pub-active">
+					<a href="./offline_course.php" class="pub-active">
 						<h2>线下课程</h2>
 					</a>
 				</li>
@@ -104,8 +104,8 @@
 					</div>
 					<!-- 登录和注册 -->
 					<div class="login-button">
-						<a href="javascript:void(0)" class="a-login">登录</a>
-						<a href="javascript:void(0)" class="a-register">注册</a>
+						<a href="../sign.php" class="a-login">登录</a>
+						<a href="../sign.php" class="a-register">注册</a>
 					</div>
 					<!-- 中间标题 -->
 					<div class="user-middle">
