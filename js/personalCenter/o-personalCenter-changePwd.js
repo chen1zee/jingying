@@ -97,10 +97,17 @@ $("#submit-pwd").on("click",function(){
 									pwd_new:$("input[name=pwd-new]").val(),
 								},
 								dataType:"json",
+								success:function(data) {
+									if (data.result == "success") {
+										$(".middle4-right>div>input").val("");
+										$(".trueFalse").css("display","none");
+										alert("密码修改成功");
+									}else{
+										alert("系统错误，密码修改失败");
+									}
+								}
 							})
-								.fail(function () {
-									alert('asdasds');
-								})
+								
 
 
 						} else {
