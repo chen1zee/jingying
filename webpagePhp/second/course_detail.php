@@ -43,32 +43,32 @@ echo "<p id='theCourseId' style='display:none;'>".$id."</p>";
 			<div class="pub-logo"></div>
 			<ul class="pub-list">
 				<li>
-					<a href="###">
+					<a href="./index_second.html">
 						<h2>首页</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###" class="pub-active">
+					<a href="javascript:void(0);" class="pub-active">
 						<h2>线下课程</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###">
+					<a href="javascript:void(0);">
 						<h2>在线课程</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###">
+					<a href="./offline_school.php">
 						<h2>学校</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###">
+					<a href="javascript:void(0);">
 						<h2>互联网头条</h2>
 					</a>
 				</li>
 				<li>
-					<a href="###">
+					<a href="javascript:void(0);">
 						<h2>+提问</h2>
 					</a>
 				</li>
@@ -265,7 +265,7 @@ echo "<p id='theCourseId' style='display:none;'>".$id."</p>";
 				
 <?php 
 	preg_match_all("/[a-zA-Z]\w+/", $row['type'], $type_key);
-	$sql = 'select *,(case when `type` like \'%'.$type_key[0][0].'%\' then 1 else 0 end) as `like_it` from `c-offline-course` where `id` != '.$row['id'].' order by `like_it` desc limit 0,7';
+	$sql = 'select *,(case when `type` like \'%'.$type_key[0][0].'%\' then 1 else 0 end) as `like_it` from `c-offline-course` where `id` != '.$row['id'].' order by `like_it` desc,`sell_num` desc limit 0,7';
 	
 	$result_other_course = mysql_query($sql);
 	$strLi = '';
@@ -551,7 +551,7 @@ echo "<p id='theCourseId' style='display:none;'>".$id."</p>";
 	if (mysql_affected_rows() > 0) {
 		while ($row_hot = mysql_fetch_assoc($result_hot)) {
 			$strLi .= '<li class="clearfix">'.
-						'<a href="./course_detail.php?'.$row_hot['id'].'">'.
+						'<a href="./course_detail.php?id='.$row_hot['id'].'">'.
 							'<img src="../../img/c-course6.png" alt="">'.
 							'<p class="title">'.$row_hot['type'].'</p>'.
 							'<p class="para">'.$row_hot['address'].'</p>'.

@@ -34,12 +34,12 @@
 					</a>
 				</li>
 				<li>
-					<a href="../course.html">
+					<a href="javascript:void(0);">
 						<h2>在线课程</h2>
 					</a>
 				</li>
 				<li>
-					<a href="./offline_school.html">
+					<a href="./offline_school.php">
 						<h2>学校</h2>
 					</a>
 				</li>
@@ -81,11 +81,11 @@
 					<span class="icon"></span>
 					<span>分类：</span>
 				</div>
-				<div class="list clearfix">
-					<a href="###">unity 3D</a>
-					<a href="###">iOS</a>
-					<a href="###">Android</a>
-					<a href="###">Html5</a>
+				<div class="list clearfix" id="classBox">
+					<a href="javascript:void(0);">unity 3D</a>
+					<a href="javascript:void(0);">iOS</a>
+					<a href="javascript:void(0);">Android</a>
+					<a href="javascript:void(0);">Html5</a>
 				</div>
 			</div>
 			<div class="address choose-wrap clearfix">
@@ -102,9 +102,7 @@
 			</div>
 		</div>
 
-<?php 
-	'insert'
- ?>
+
 		<!-- 搜索结果 -->
 		<div class="result-bg">
 			<div class="rank-style clearfix">

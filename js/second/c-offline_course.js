@@ -21,6 +21,11 @@ $(function () {
 	
 
 
+	// $('classBox').on('click','a',function () {
+
+	// 	 /* body... */ 
+	// });
+
 
 
 	// 销量点击
@@ -269,10 +274,6 @@ $(function () {
 				}
 				str += '</li>';
 				$('#resultList').html(str);
-
-
-
-
 
 
 				 /* body... */ 
